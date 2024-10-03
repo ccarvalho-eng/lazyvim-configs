@@ -1,7 +1,6 @@
 return {
   "nvimdev/dashboard-nvim",
   opts = function(_, opts)
-    -- Specific tenet
     local tenet = "We work in the dark to serve the light"
 
     -- Logo
@@ -35,14 +34,12 @@ return {
     logo = string.rep("\n", 8) .. logo .. "\n\n"
     opts.config.header = vim.split(logo, "\n")
 
-    -- Specific quote
     local quote = [[
 When I was a young man, I had liberty, but I did not see it. I had time,
 but I did not know it. And I had love, but I did not feel it.
 
 - Ezio Auditore]]
 
-    -- Function to wrap text to a specific width
     local function wrap_text(text, width)
       local wrapped = {}
       local line = ""
@@ -60,7 +57,6 @@ but I did not know it. And I had love, but I did not feel it.
       return wrapped
     end
 
-    -- Set up the footer with plugin info and the wrapped quote
     opts.config.footer = function()
       local stats = require("lazy").stats()
       local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
