@@ -1,27 +1,95 @@
+-- Elixir Language Server and Plugin Configuration for LazyVim
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "elixir", "heex", "eex" })
-      end
-    end,
-  },
+  -- LSP Configuration for Elixir
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
         elixirls = {
-          cmd = { "elixir-ls" },
+          -- ElixirLS Pipe Manipulation Keybindings
+          keys = {
+            -- Convert to Pipe
+            {
+              "<leader>cp",
+              function()
+                local params = vim.lsp.util.make_position_params()
+                LazyVim.lsp.execute({
+                  command = "manipulatePipes:serverid",
+                  arguments = { "toPipe", params.textDocument.uri, params.position.line, params.position.character },
+                })
+              end,
+              desc = "Convert to Pipe",
+            },
+            -- Convert from Pipe
+            {
+              "<leader>cP",
+              function()
+                local params = vim.lsp.util.make_position_params()
+                LazyVim.lsp.execute({
+                  command = "manipulatePipes:serverid",
+                  arguments = { "fromPipe", params.textDocument.uri, params.position.line, params.position.character },
+                })
+              end,
+              desc = "Convert from Pipe",
+            },
+          },
         },
       },
     },
   },
+
+  -- Treesitter Configuration for Elixir and Related Languages
   {
-    "williamboman/mason.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "elixir", "heex", "eex" },
+    },
+  },
+
+  -- Neotest Adapter for Elixir
+  {
+    "jfpedroza/neotest-elixir",
+  },
+
+  -- Optional: Neotest configuration with Elixir adapter
+  {
+    "nvim-neotest/neotest",
+    opts = {
+      adapters = {
+        ["neotest-elixir"] = {},
+      },
+    },
+  },
+
+  -- Credo Integration using Null-LS for Linting
+  {
+    "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "elixir-ls" })
+      local nls = require("null-ls")
+      opts.sources = vim.list_extend(opts.sources or {}, {
+        nls.builtins.diagnostics.credo.with({
+          condition = function(utils)
+            return utils.root_has_file(".credo.exs")
+          end,
+        }),
+      })
+    end,
+  },
+
+  -- Optional: Credo Linting using nvim-lint
+  {
+    "mfussenegger/nvim-lint",
+    opts = function(_, opts)
+      opts.linters_by_ft = {
+        elixir = { "credo" },
+      }
+      opts.linters = {
+        credo = {
+          condition = function(ctx)
+            return vim.fs.find({ ".credo.exs" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+      }
     end,
   },
 }
