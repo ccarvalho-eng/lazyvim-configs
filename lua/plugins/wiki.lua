@@ -10,6 +10,5 @@ return {
         ext = "md",
       },
     }
-    -- vim.g.vimwiki_ext2syntax = {}
   end,
 }
