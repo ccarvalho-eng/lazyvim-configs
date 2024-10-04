@@ -32,6 +32,30 @@ return {
               end,
               desc = "Convert from Pipe",
             },
+            -- Switch Test/Implementation
+            {
+              "<leader>tm",
+              function()
+                local current_file = vim.fn.expand("%")
+                local target_file
+
+                if current_file:match("_test%.exs$") then
+                  target_file = current_file:gsub("/test/", "/lib/"):gsub("_test%.exs$", ".ex")
+                elseif current_file:match("%.ex$") then
+                  target_file = current_file:gsub("/lib/", "/test/"):gsub("%.ex$", "_test.exs")
+                else
+                  print("Test file not found")
+                  return
+                end
+
+                if vim.fn.filereadable(target_file) == 1 then
+                  vim.cmd("edit " .. target_file)
+                else
+                  print("Target file not found: " .. target_file)
+                end
+              end,
+              desc = "Switch Test/Implementation",
+            },
           },
         },
       },
