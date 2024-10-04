@@ -10,5 +10,9 @@ return {
         ext = "md",
       },
     }
+    vim.g.vimwiki_ext2syntax = {
+      [".md"] = "markdown",
+      [".txt"] = "mediawiki",
+    }
   end,
 }
