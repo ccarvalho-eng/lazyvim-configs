@@ -56,6 +56,16 @@ return {
               end,
               desc = "Switch Test/Implementation",
             },
+            -- Append |> dbg()
+            {
+              "<leader>cI",
+              function()
+                local line = vim.api.nvim_get_current_line()
+                local new_line = line .. " |> dbg()"
+                vim.api.nvim_set_current_line(new_line)
+              end,
+              desc = "Append |> dbg()",
+            },
           },
         },
       },
