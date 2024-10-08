@@ -4,8 +4,7 @@ return {
     lazy = true,
     cmd = { "Calendar" },
     keys = {
-      { "<leader>h", desc = "Calendar" },
-      { "<leader>he", "<cmd>Calendar<cr>", desc = "Open Calendar" },
+      { "<leader>h", "<cmd>Calendar<cr>", desc = "Calendar" },
     },
     config = function()
       vim.g.calendar_google_calendar = 1
