@@ -83,6 +83,12 @@ return {
         ["neotest-elixir"] = {},
       },
     },
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
 
   -- Credo Integration using Null-LS for Linting
@@ -114,6 +120,25 @@ return {
           end,
         },
       }
+    end,
+  },
+
+  -- vim-test configuration
+  {
+    "vim-test/vim-test",
+    keys = {
+      { "<leader>m", desc = "+Mix Tasks" },
+      { "<leader>mt", desc = "+Tests" },
+      { "<leader>mts", "<cmd>TestNearest<CR>", desc = "Run nearest test" },
+      { "<leader>mtv", "<cmd>TestFile<CR>", desc = "Run test file" },
+      { "<leader>mta", "<cmd>TestSuite<CR>", desc = "Run test suite" },
+      { "<leader>mtl", "<cmd>TestLast<CR>", desc = "Run last test" },
+      { "<leader>mtf", "<cmd>TestVisit<CR>", desc = "Visit test file" },
+    },
+    config = function()
+      vim.g["test#strategy"] = "neovim"
+      vim.g["test#neovim#term_position"] = "vert"
+      -- vim.g["test#elixir#exunit#options"] = "--trace"
     end,
   },
 }
