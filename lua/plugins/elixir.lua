@@ -36,15 +36,17 @@ return {
             {
               "<leader>tm",
               function()
-                local current_file = vim.fn.expand("%")
+                local current_file = vim.fn.expand("%:p")
                 local target_file
 
                 if current_file:match("_test%.exs$") then
+                  -- We're in a test file, switch to implementation
                   target_file = current_file:gsub("/test/", "/lib/"):gsub("_test%.exs$", ".ex")
                 elseif current_file:match("%.ex$") then
+                  -- We're in an implementation file, switch to test
                   target_file = current_file:gsub("/lib/", "/test/"):gsub("%.ex$", "_test.exs")
                 else
-                  print("Test file not found")
+                  print("Not a recognized Elixir file type")
                   return
                 end
 
