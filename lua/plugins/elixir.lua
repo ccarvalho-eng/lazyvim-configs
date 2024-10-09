@@ -142,7 +142,7 @@ return {
       { "<leader>mts", "<cmd>TestNearest<CR>", desc = "Run nearest test" },
       { "<leader>mtv", "<cmd>TestFile<CR>", desc = "Run test file" },
       { "<leader>mta", "<cmd>TestSuite<CR>", desc = "Run test suite" },
-      { "<leader>mtl", "<cmd>TestLast<CR>", desc = "Run last test" },
+      { "<leader>mtr", "<cmd>TestLast<CR>", desc = "Run last test" },
       { "<leader>mtf", "<cmd>TestVisit<CR>", desc = "Visit test file" },
     },
     config = function()
