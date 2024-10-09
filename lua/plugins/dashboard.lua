@@ -23,6 +23,7 @@ return {
     ⠀⠀⠑⠄⡀⠀⠈⠙⠳⢦⣀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠶⠋⠁⠀⢀⡠⠊⠀⠀⠀
     ⠀⠀⠀⠀⠈⠒⢤⣀⠀⠀⠀⠁⠀⠀⣠⣄⠀⠀⠀⠀⠀⣀⡤⠒⠁⠀⠀⠀⠀⠀
     ⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠷⠶⢶⣿⣿⣿⣿⡷⠶⠾⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀
+
     [ %s ]
     ]],
       tenet
@@ -36,10 +37,9 @@ return {
       local footer = {
         "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
         "",
-        "When I was a young man, I had liberty, but I did not see it. I had time,",
-        "but I did not know it. And I had love, but I did not feel it.",
+        "There is no greater glory than fighting to find the truth.",
         "",
-        "- Ezio Auditore",
+        "- Altaïr Ibn-La'Ahad",
         -- Add more newlines at the end
         "",
         "",
