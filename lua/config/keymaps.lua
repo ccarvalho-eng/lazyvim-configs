@@ -12,3 +12,7 @@ vim.api.nvim_set_keymap(
   ":vsplit | vertical resize 80 | terminal<CR>",
   { noremap = true, silent = true }
 )
+
+-- Switch between buffers
+vim.api.nvim_set_keymap("n", "gt", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gT", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
