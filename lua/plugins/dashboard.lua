@@ -30,7 +30,7 @@ return {
       main_quote
     )
     -- Increase the number of newlines before and after the logo
-    logo = string.rep("\n", 3) .. logo .. string.rep("\n", 3)
+    logo = string.rep("\n", 2) .. logo .. string.rep("\n", 2)
     opts.config.header = vim.split(logo, "\n")
     opts.config.footer = function()
       local stats = require("lazy").stats()
@@ -41,8 +41,6 @@ return {
         "Power. You have it, as do all dov. But power is inert without action and choice.",
         "",
         "- Paarthurnax",
-        "",
-        "",
         "",
       }
       return footer
