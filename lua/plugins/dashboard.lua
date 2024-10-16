@@ -47,11 +47,6 @@ return {
       return footer
     end
 
-    -- Set custom highlight groups for the dashboard
-    local highlight_color = "#e6ecec"
-    vim.api.nvim_set_hl(0, "DashboardHeader", { fg = highlight_color })
-    vim.api.nvim_set_hl(0, "DashboardFooter", { fg = highlight_color })
-
     return opts
   end,
 }
