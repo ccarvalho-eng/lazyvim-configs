@@ -39,6 +39,14 @@ return {
     -- Ensure the random seed is initialized for randomness
     math.randomseed(os.time())
 
+    -- Get the header quote and separate the quote and author
+    local header_quote = get_random_header_quote()
+    local quote_text, author = header_quote:match("^(.-)\n%-(.+)$")
+
+    -- Wrap the quote text only, and append the author on a new line
+    local wrapped_quote_text = wrap_text(quote_text, 80)
+    table.insert(wrapped_quote_text, "-" .. author)
+
     local logo = string.format(
       [[
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡇⠀⠀⠀⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -64,7 +72,7 @@ return {
 
     [ %s ]
     ]],
-      get_random_header_quote()
+      table.concat(wrapped_quote_text, "\n")
     )
     -- Increase the number of newlines before and after the logo
     logo = string.rep("\n", 2) .. logo .. string.rep("\n", 2)
