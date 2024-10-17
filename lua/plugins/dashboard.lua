@@ -74,8 +74,7 @@ return {
     ]],
       table.concat(wrapped_quote_text, "\n")
     )
-    -- Increase the number of newlines before and after the logo
-    logo = string.rep("\n", 2) .. logo .. string.rep("\n", 2)
+    logo = string.rep("\n", 4) .. logo .. string.rep("\n", 2)
     opts.config.header = vim.split(logo, "\n")
     opts.config.footer = function()
       local stats = require("lazy").stats()
