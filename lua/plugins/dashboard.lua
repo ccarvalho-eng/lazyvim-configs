@@ -1,26 +1,23 @@
 local M = {}
 
--- Utility function
-local function wrap_text(text, max_width)
-  local wrapped = {}
+-- Logo generation
+local function generate_logo(quote_text, author)
+  local wrapped_quote_text = {}
   local line = ""
-  for word in text:gmatch("%S+") do
-    if #line + #word + 1 > max_width then
-      table.insert(wrapped, line)
+  local width = 80
+
+  -- Wrap quote text
+  for word in quote_text:gmatch("%S+") do
+    if #line + #word + 1 > width then
+      table.insert(wrapped_quote_text, line)
       line = word
     else
       line = #line > 0 and (line .. " " .. word) or word
     end
   end
   if #line > 0 then
-    table.insert(wrapped, line)
+    table.insert(wrapped_quote_text, line)
   end
-  return wrapped
-end
-
--- Logo generation
-local function generate_logo(quote_text, author)
-  local wrapped_quote_text = wrap_text(quote_text, 80)
   table.insert(wrapped_quote_text, "-" .. author)
 
   local logo_template = [[
@@ -53,11 +50,11 @@ end
 
 -- Main configuration function
 function M.configure(_, opts)
+  -- Initialize random seed for quote selection
   math.randomseed(os.time())
 
-  -- Load quotes directly
+  -- Load quotes
   local header_quotes = require("plugins.dashboard.header_quotes")
-  local footer_quotes = require("plugins.dashboard.footer_quotes")
 
   -- Select random header quote
   local selected_header_quote = header_quotes[math.random(#header_quotes)]
@@ -69,18 +66,37 @@ function M.configure(_, opts)
 
   -- Configure footer
   opts.config.footer = function()
+    -- Load stats
     local stats = require("lazy").stats()
     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
 
+    -- Load quotes
+    local footer_quotes = require("plugins.dashboard.footer_quotes")
+
     -- Select random footer quote
     local random_footer_quote = footer_quotes[math.random(#footer_quotes)]
-    local wrapped_quote = wrap_text(random_footer_quote[1], 80)
+    local wrapped_footer_quote = {}
+    local line = ""
+    local width = 80
+
+    -- Wrap quote text
+    for word in random_footer_quote[1]:gmatch("%S+") do
+      if #line + #word + 1 > width then
+        table.insert(wrapped_footer_quote, line)
+        line = word
+      else
+        line = #line > 0 and (line .. " " .. word) or word
+      end
+    end
+    if #line > 0 then
+      table.insert(wrapped_footer_quote, line)
+    end
 
     local footer = {
       string.format("⚡ Neovim loaded %d/%d plugins in %.2fms", stats.loaded, stats.count, ms),
       "",
     }
-    vim.list_extend(footer, wrapped_quote)
+    vim.list_extend(footer, wrapped_footer_quote)
     table.insert(footer, "")
 
     return footer
