@@ -1,17 +1,6 @@
-local function get_random_header_quote()
-  local header_quotes = require("plugins.dashboard.header_quotes")
-  local random_index = math.random(#header_quotes)
-  local selected_quote = header_quotes[random_index]
+local M = {}
 
-  return selected_quote.quote .. "\n-" .. selected_quote.author
-end
-
-local function get_random_footer_quote()
-  local footer_quotes = require("plugins.dashboard.footer_quotes")
-  math.randomseed(os.time())
-  return footer_quotes[math.random(#footer_quotes)]
-end
-
+-- Utility function
 local function wrap_text(text, max_width)
   local wrapped = {}
   local line = ""
@@ -20,11 +9,7 @@ local function wrap_text(text, max_width)
       table.insert(wrapped, line)
       line = word
     else
-      if #line > 0 then
-        line = line .. " " .. word
-      else
-        line = word
-      end
+      line = #line > 0 and (line .. " " .. word) or word
     end
   end
   if #line > 0 then
@@ -33,22 +18,12 @@ local function wrap_text(text, max_width)
   return wrapped
 end
 
-return {
-  "nvimdev/dashboard-nvim",
-  opts = function(_, opts)
-    -- Ensure the random seed is initialized for randomness
-    math.randomseed(os.time())
+-- Logo generation
+local function generate_logo(quote_text, author)
+  local wrapped_quote_text = wrap_text(quote_text, 80)
+  table.insert(wrapped_quote_text, "-" .. author)
 
-    -- Get the header quote and separate the quote and author
-    local header_quote = get_random_header_quote()
-    local quote_text, author = header_quote:match("^(.-)\n%-(.+)$")
-
-    -- Wrap the quote text only, and append the author on a new line
-    local wrapped_quote_text = wrap_text(quote_text, 80)
-    table.insert(wrapped_quote_text, "-" .. author)
-
-    local logo = string.format(
-      [[
+  local logo_template = [[
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡇⠀⠀⠀⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⠙⠀⠀⠀⠀⠋⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠇⠀⣺⠀⠀⠀⠀⠸⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -69,30 +44,51 @@ return {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣶⣶⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
     [ %s ]
-    ]],
-      table.concat(wrapped_quote_text, "\n")
-    )
-    logo = string.rep("\n", 4) .. logo .. string.rep("\n", 2)
-    opts.config.header = vim.split(logo, "\n")
-    opts.config.footer = function()
-      local stats = require("lazy").stats()
-      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-      local random_quote = get_random_footer_quote()
-      local wrapped_quote = wrap_text(random_quote[1], 80)
-      local footer = {
-        "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
-        "",
-      }
+    ]]
 
-      for _, line in ipairs(wrapped_quote) do
-        table.insert(footer, line)
-      end
+  return string.format(logo_template, table.concat(wrapped_quote_text, "\n"))
+end
 
-      table.insert(footer, "")
-      return footer
-    end
-    return opts
-  end,
+-- Main configuration function
+function M.configure(_, opts)
+  math.randomseed(os.time())
+
+  -- Load quotes directly
+  local header_quotes = require("plugins.dashboard.header_quotes")
+  local footer_quotes = require("plugins.dashboard.footer_quotes")
+
+  -- Select random header quote
+  local selected_header_quote = header_quotes[math.random(#header_quotes)]
+  local quote_text, author = selected_header_quote.quote, selected_header_quote.author
+
+  -- Generate logo
+  local logo = generate_logo(quote_text, author)
+  opts.config.header = vim.split(string.rep("\n", 4) .. logo .. string.rep("\n", 2), "\n")
+
+  -- Configure footer
+  opts.config.footer = function()
+    local stats = require("lazy").stats()
+    local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+
+    -- Select random footer quote
+    local random_footer_quote = footer_quotes[math.random(#footer_quotes)]
+    local wrapped_quote = wrap_text(random_footer_quote[1], 80)
+
+    local footer = {
+      string.format("⚡ Neovim loaded %d/%d plugins in %.2fms", stats.loaded, stats.count, ms),
+      "",
+    }
+    vim.list_extend(footer, wrapped_quote)
+    table.insert(footer, "")
+
+    return footer
+  end
+
+  return opts
+end
+
+return {
+  "nvimdev/dashboard-nvim",
+  opts = M.configure,
 }
