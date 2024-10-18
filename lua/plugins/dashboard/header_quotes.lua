@@ -534,4 +534,32 @@ return {
   { quote = "The roots of our pain run deep; they cannot be severed.", author = "The Ancient Falmer" },
   { quote = "We sought to understand the mysteries of the world, but it consumed us.", author = "The Ancient Falmer" },
   { quote = "Even now, we remember the taste of sunlight.", author = "The Ancient Falmer" },
+
+  -- Ralof
+  { quote = "Hey, you. You're finally awake.", author = "Ralof" },
+  { quote = "You were trying to cross the border, right?", author = "Ralof" },
+  { quote = "We’re all brothers and sisters in binds now, thief.", author = "Ralof" },
+  { quote = "Skyrim was fine until you came along. Empire was nice and lazy.", author = "Ralof" },
+  {
+    quote = "I used to be sweet on a girl from here. Wonder if Vilod is still making that mead with juniper berries mixed in.",
+    author = "Ralof",
+  },
+  { quote = "I bet they had something to do with this.", author = "Ralof" },
+  { quote = "Ulfric? The Jarl of Windhelm?", author = "Ralof" },
+  { quote = "The true High King.", author = "Ralof" },
+  { quote = "Oh gods, where are they taking us?", author = "Ralof" },
+  { quote = "This isn't happening. This isn't happening!", author = "Ralof" },
+  {
+    quote = "General Tullius, the military governor. And it looks like the Thalmor are with him. Damn elves. I bet they had something to do with this.",
+    author = "Ralof",
+  },
+  { quote = "Look at him. General Tullius the butcher.", author = "Ralof" },
+  { quote = "There’s a bear just ahead. See her? I’d rather not tangle with her right now.", author = "Ralof" },
+  { quote = "Talos preserve us.", author = "Ralof" },
+  { quote = "It's the Imperials. They ambushed us outside Darkwater Crossing.", author = "Ralof" },
+  { quote = "We should keep moving. Come here. Let me see if I can get those bindings off.", author = "Ralof" },
+  { quote = "Damn, that dragon doesn't give up easy.", author = "Ralof" },
+  { quote = "Looks like we're the only ones who made it.", author = "Ralof" },
+  { quote = "By Ysmir, you've come. You've truly come!", author = "Ralof" },
+  { quote = "It's Ulfric Stormcloak himself!", author = "Ralof" },
 }
