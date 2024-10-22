@@ -1,7 +1,7 @@
 local M = {}
 
 -- Logo generation
-local function generate_logo(quote_text, author)
+function M.generate_logo(quote_text, author)
   local wrapped_quote_text = {}
   local line = ""
   local width = 80
@@ -61,7 +61,7 @@ function M.configure(_, opts)
   local quote_text, author = selected_header_quote.quote, selected_header_quote.author
 
   -- Generate logo
-  local logo = generate_logo(quote_text, author)
+  local logo = M.generate_logo(quote_text, author)
   opts.config.header = vim.split(string.rep("\n", 4) .. logo .. string.rep("\n", 2), "\n")
 
   -- Configure footer
