@@ -11,6 +11,11 @@ return {
 
       require("onedark").setup({
         style = is_daytime and "light" or "dark",
+        highlights = {
+          NeoTreeNormal = { bg = "NONE" },
+          NeoTreeNormalNC = { bg = "NONE" },
+          NeoTreeEndOfBuffer = { bg = "NONE" },
+        },
       })
       vim.cmd.colorscheme("onedark")
     end,
