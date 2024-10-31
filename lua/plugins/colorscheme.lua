@@ -6,13 +6,9 @@ return {
     config = function()
       local onedark = require("onedark")
 
-      -- Initialize with time-based theme
-      local hour = tonumber(os.date("%H"))
-      local is_daytime = hour >= 6 and hour < 18
-
-      -- Configure theme
+      -- Configure theme with a default style (you can choose 'dark' or 'light' as default)
       onedark.setup({
-        style = is_daytime and "light" or "dark",
+        style = "dark", -- Set a default style
         highlights = {
           NeoTreeNormal = { bg = "NONE" },
           NeoTreeNormalNC = { bg = "NONE" },
@@ -30,9 +26,8 @@ return {
 
       -- Create user command for toggling
       vim.api.nvim_create_user_command("ToggleTheme", toggle_theme, {})
-
-      -- Optionally, set up a keybinding (uncomment to use)
-      -- vim.keymap.set("n", "<leader>tt", toggle_theme, { desc = "Toggle theme" })
+      -- Create keymap for toggling
+      vim.keymap.set("n", "<leader>cb", toggle_theme, { desc = "Toggle theme" })
 
       -- Apply initial colorscheme
       vim.cmd.colorscheme("onedark")
