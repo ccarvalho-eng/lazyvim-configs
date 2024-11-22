@@ -16,3 +16,6 @@ vim.api.nvim_set_keymap(
 -- Switch between buffers
 vim.api.nvim_set_keymap("n", "gt", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gT", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+
+-- Keybinding to delete all buffers
+vim.api.nvim_set_keymap("n", "<leader>bK", ":%bd<CR>", { noremap = true, silent = true })
