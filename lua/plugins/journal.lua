@@ -3,28 +3,29 @@ return {
     "jakobkhansen/journal.nvim",
     config = function()
       require("journal").setup({
-        filetype = "md", -- Filetype to use for new journal entries
+        filetype = "md",
         root = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Animus/journal",
-        date_format = "%d/%m/%Y", -- Date format for `:Journal <date-modifier>`
-        autocomplete_date_modifier = "end", -- "always"|"never"|"end". Enable date modifier autocompletion
-
+        date_format = "%a %d %b %Y",
+        autocomplete_date_modifier = "end",
         journal = {
-          -- Default configuration for `:Journal <date-modifier>`
           format = "%Y/%m-%B/daily/%d-%A",
-          template = "# %A %B %d %Y\n",
+          template = "# %a %d %b %Y\n",
           frequency = { day = 1 },
-
           entries = {
             day = {
-              format = "%Y/%m-%B/daily/%d-%A", -- Format of the journal entry in the filesystem.
-              template = "# %A %B %d %Y\n", -- Optional. Template used when creating a new journal entry
-              frequency = { day = 1 }, -- Optional. The frequency of the journal entry. Used for `:Journal next`, `:Journal -2` etc
+              format = "%Y/%m-%B/daily/%d-%A",
+              template = "# %a %d %b %Y\n",
+              frequency = { day = 1 },
             },
             week = {
               format = "%Y/%m-%B/weekly/week-%W",
-              template = "# Week %W %B %Y\n",
+              template = function(date)
+                local sunday = date:relative({ day = 6 })
+                local end_date = os.date("%A %d/%m", os.time(sunday.date))
+                return "# Week %W - %A %d/%m -> " .. end_date .. "\n"
+              end,
               frequency = { day = 7 },
-              date_modifier = "monday", -- Optional. Date modifier applied before other modifier given to `:Journal`
+              date_modifier = "monday",
             },
             month = {
               format = "%Y/%m-%B/%B",
@@ -36,16 +37,14 @@ return {
               template = "# %Y\n",
               frequency = { year = 1 },
             },
-            -- Entry type for each quarter of the year
             quarter = {
-              -- strftime doesn't supply a quarter variable, so we compute it manually
               format = function(date)
                 local quarter = math.ceil(tonumber(os.date("%m", os.time(date.date))) / 3)
                 return "%Y/quarter/" .. quarter
               end,
               template = function(date)
                 local quarter = math.ceil(os.date("%m", os.time(date.date)) / 3)
-                return "# %Y Quarter " .. quarter .. "\n"
+                return "# %Y Quarter " .. quarter .. " - " .. os.date("%a %d %b %Y", os.time(date.date)) .. "\n"
               end,
               frequency = { month = 3 },
             },
