@@ -318,7 +318,7 @@ Q4:
 
       require("journal").setup({
         filetype = "md",
-        root = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Animus/journal",
+        root = "~/ccarvalho.infosec@gmail.com - Google Drive/My Drive/Obsidian /Blackreach/journal",
         date_format = "%a %d %b %Y",
         autocomplete_date_modifier = "end",
         journal = {
