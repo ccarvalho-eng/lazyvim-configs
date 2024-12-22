@@ -181,7 +181,6 @@ Three things I'm grateful for:
 - 
 ]]
 
-      -- Quarterly template function with strategic focus
       local function quarterly_template(date)
         local quarter = math.ceil(os.date("%m", os.time(date.date)) / 3)
         return string.format(
@@ -211,9 +210,9 @@ Three things I'm grateful for:
 
 ## 📈 Performance Review
 ### Goals Progress
-- Goal 1: [ ] Progress %
-- Goal 2: [ ] Progress %
-- Goal 3: [ ] Progress %
+- Goal 1: [ ] Progress %%
+- Goal 2: [ ] Progress %%
+- Goal 3: [ ] Progress %%
 
 ### Metrics Dashboard
 <!-- Key metrics and their trends -->
@@ -293,11 +292,11 @@ Q4:
 
 ## 📈 Progress Analysis
 ### Goals Achievement Rate
-- Professional: %
-- Personal: %
-- Financial: %
-- Health: %
-- Relationships: %
+- Professional: %%
+- Personal: %%
+- Financial: %%
+- Health: %%
+- Relationships: %%
 
 ### Habit Development
 <!-- Review of habit formation and maintenance -->
