@@ -7,18 +7,23 @@ return {
 # %a %d %b %Y
 
 ## 🌅 Morning Routine
+
 - [ ] Review today's calendar and priorities
 - [ ] Plan top 3 tasks for the day
 - [ ] Check energy levels (1-10): 
 
 ## 💪 Today's Goals
+
 ### Must Do
+
 - [ ] 
 
 ### Should Do
+
 - [ ] 
 
 ### Nice to Do
+
 - [ ] 
 
 ## 📝 Notes & Ideas
@@ -28,29 +33,37 @@ return {
 <!-- Key meetings, conversations, and collaborations -->
 
 ## 🎯 Progress Tracking
+
 ### What Went Well
+
 - 
 
 ### Challenges Faced
+
 - 
 
 ### Solutions/Learnings
+
 - 
 
 ## 🌟 Today's Highlights
 <!-- Memorable moments and key achievements -->
 
 ## 🌙 Evening Review
+
 ### Accomplished Today
+
 - [ ] 
 
 ### Energy Level End of Day (1-10): 
 
 ### Tomorrow's Preparation
+
 - [ ] Key tasks to tackle
 - [ ] Schedule adjustments needed
 
 ### Gratitude
+
 Three things I'm grateful for:
 1. 
 2. 
@@ -66,32 +79,48 @@ Three things I'm grateful for:
 # Week %%W - %%A %%d/%%m -> %s
 
 ## 🎯 Weekly Goals & Focus Areas
+
 ### Professional Goals
+
 - [ ] 
 
 ### Personal Goals
+
 - [ ] 
 
 ### Learning Goals
+
 - [ ] 
 
+## Tasks
+
+- [ ] Financial
+  - [ ] Review uncategorized invoices
+
 ## 📈 Progress Review
+
 ### Key Wins
+
 - 
 
 ### Challenges & Solutions
+
 - 
 
 ### Unfinished Tasks
+
 - 
 
 ## 🔄 Habits Tracking
+
 ### Daily Habits
+
 | Habit | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |-------|-----|-----|-----|-----|-----|-----|-----|
 |       |     |     |     |     |     |     |     |
 
 ### Weekly Metrics
+
 - Energy Level (Avg): 
 - Productivity Score (1-10): 
 - Work-Life Balance (1-10): 
@@ -103,13 +132,17 @@ Three things I'm grateful for:
 <!-- Highlight special moments or achievements -->
 
 ## 📅 Next Week Planning
+
 ### Focus Areas
+
 - 
 
 ### Key Appointments
+
 - 
 
 ### Tasks to Delegate
+
 - 
 ]],
           end_date
@@ -121,63 +154,112 @@ Three things I'm grateful for:
 # %B %Y
 
 ## 🎯 Monthly Goals
+
 ### Professional Development
+
 - [ ] 
 
 ### Personal Growth
+
 - [ ] 
 
 ### Health & Wellness
+
 - [ ] 
 
 ### Relationships
+
 - [ ] 
 
+## 📋 Tasks
+
+### 💳 Financial
+
+- [ ] Pay bills
+  - [ ] Accountant
+  - [ ] Rent
+  - [ ] My wife's personal trainer
+  - [ ] Electricity
+- [ ] Donations
+  - [ ] Tithe to church
+- [ ] Submit expenses
+  - [ ] Accounting
+    - [ ] Internet
+    - [ ] GitHub Copilot
+  - [ ] Work
+    - [ ] Internet
+    - [ ] Gym
+
+### 🚗 Vehicle Care
+
+- [ ] Check tire pressure
+- [ ] Clean interior
+- [ ] Check fluid levels
+- [ ] Log mileage
+
 ## 📊 Monthly Review
+
 ### Major Achievements
+
 - 
 
 ### Growth Areas
+
 - 
 
 ### Challenges Overcome
+
 - 
 
 ### Lessons Learned
+
 - 
 
 ## 📈 Habits & Metrics
+
 ### Habit Completion Rates
+
 <!-- Track completion rates of key habits -->
 
 ### Key Performance Indicators
+
 - Professional Goals Progress: 
 - Personal Goals Progress: 
 - Health Goals Progress: 
 
 ## 🗓️ Key Events & Milestones
+
 <!-- Important dates, achievements, and memorable moments -->
 
 ## 💰 Financial Review
+
 ### Budget Overview
+
 - Income: 
 - Expenses: 
 - Savings: 
 
 ### Financial Goals Progress
+
 - [ ] 
 
 ## 📝 Notes & Insights
 <!-- Important learnings and observations -->
 
 ## 🎯 Next Month Planning
+
+- 
+
 ### Focus Areas
+
 - 
 
 ### Goals to Carry Forward
+
 - 
 
 ### New Initiatives
+
 - 
 ]]
 
@@ -188,6 +270,7 @@ Three things I'm grateful for:
 # %%Y Quarter %d
 
 ## 🎯 Quarterly Goals & OKRs
+
 ### Objectives
 1. 
 2. 
@@ -199,17 +282,23 @@ Three things I'm grateful for:
 3. 
 
 ## 📊 Quarter Overview
+
 ### Major Accomplishments
+
 - 
 
 ### Challenges & Solutions
+
 - 
 
 ### Opportunities Identified
+
 - 
 
 ## 📈 Performance Review
+
 ### Goals Progress
+
 - Goal 1: [ ] Progress %%
 - Goal 2: [ ] Progress %%
 - Goal 3: [ ] Progress %%
@@ -218,26 +307,34 @@ Three things I'm grateful for:
 <!-- Key metrics and their trends -->
 
 ## 💡 Strategic Planning
+
 ### Strengths to Leverage
+
 - 
 
 ### Areas for Improvement
+
 - 
 
 ### Action Items
+
 - [ ] 
 
 ## 📝 Important Learnings
 <!-- Key insights and knowledge gained -->
 
 ## 🎯 Next Quarter Planning
+
 ### Strategic Priorities
+
 - 
 
 ### Resource Requirements
+
 - 
 
 ### Risk Assessment
+
 - 
 ]],
           quarter
@@ -249,49 +346,65 @@ Three things I'm grateful for:
 # Year %Y
 
 ## 🎯 Yearly Goals & Vision
+
 ### Professional
+
 - [ ] 
 
 ### Personal
+
 - [ ] 
 
 ### Financial
+
 - [ ] 
 
 ### Health & Wellness
+
 - [ ] 
 
 ### Relationships
+
 - [ ] 
 
 ## 🌟 Theme for the Year
 <!-- One word or phrase to capture the year's focus -->
 
 ## 📊 Year in Review
+
 ### Major Achievements
+
 - 
 
 ### Key Projects Completed
+
 - 
 
 ### Learning & Growth
+
 - 
 
 ### Challenges Overcome
+
 - 
 
 ## 💫 Memorable Moments
+
 ### Highlights by Quarter
+
 Q1: 
 Q2: 
 Q3: 
 Q4: 
 
 ### Personal Milestones
+
 - 
 
 ## 📈 Progress Analysis
+
 ### Goals Achievement Rate
+
 - Professional: %%
 - Personal: %%
 - Financial: %%
@@ -302,16 +415,21 @@ Q4:
 <!-- Review of habit formation and maintenance -->
 
 ## 🎯 Next Year Vision
+
 ### Long-term Goals (3-5 years)
+
 - 
 
 ### Focus Areas for Next Year
+
 - 
 
 ### Personal Development Plan
+
 - 
 
 ### Resource Planning
+
 - 
 ]]
 
