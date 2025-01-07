@@ -435,7 +435,7 @@ Q4:
 
       require("journal").setup({
         filetype = "md",
-        root = "~/ccarvalho.infosec@gmail.com - Google Drive/My Drive/Obsidian /Blackreach/journal",
+        root = os.getenv("JOURNAL_ROOT"),
         date_format = "%a %d %b %Y",
         autocomplete_date_modifier = "end",
         journal = {
