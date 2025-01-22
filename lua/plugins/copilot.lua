@@ -105,6 +105,7 @@ return {
       local user = vim.env.USER or "User"
       user = user:sub(1, 1):upper() .. user:sub(2)
       return {
+        model = "claude-3.5-sonnet",
         auto_insert_mode = true,
         show_help = true,
         question_header = "  " .. user .. " ",
