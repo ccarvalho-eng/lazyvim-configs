@@ -4,9 +4,10 @@ return {
   ft = { "org" },
   config = function()
     -- Setup orgmode
+    local agenda_dir = os.getenv("ORG_AGENDA_FILES")
     require("orgmode").setup({
-      org_agenda_files = os.getenv("ORG_AGENDA_FILES") .. "/**/*",
-      org_agenda_default_notes_file = os.getenv("ORG_DEFAULT_NOTES_FILE"),
+      org_agenda_files = { agenda_dir .. "/*.org" },
+      org_default_notes_file = agenda_dir .. "/notes.org",
     })
 
     require("nvim-treesitter.configs").setup({
