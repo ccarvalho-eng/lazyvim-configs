@@ -10,6 +10,11 @@ return {
         org_default_notes_file = agenda_dir .. "/notes.org",
       })
 
+      -- Add a keybinding to open org files directory
+      vim.keymap.set("n", "<Leader>on", function()
+        vim.cmd("Ex " .. os.getenv("ORG_AGENDA_FILES"))
+      end, { desc = "Open org notes directory" })
+
       require("nvim-treesitter.configs").setup({
         ensure_installed = "all",
         ignore_install = { "org" },
