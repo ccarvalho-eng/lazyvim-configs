@@ -31,17 +31,12 @@ return {
               workspace = "journal",
             },
           },
+          ["core.itero"] = {},
           ["core.summary"] = {},
           ["core.export"] = {},
           ["core.export.markdown"] = {
             config = {
               extension = "md",
-            },
-          },
-          ["core.keybinds"] = {
-            config = {
-              default_keybinds = true,
-              neorg_leader = "<Leader>n",
             },
           },
         },
