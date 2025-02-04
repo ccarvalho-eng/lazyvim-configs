@@ -2,7 +2,10 @@ return {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
     cmd = "Neorg",
     ft = "norg",
     opts = function()
@@ -11,6 +14,7 @@ return {
         load = {
           ["core.defaults"] = {},
           ["core.concealer"] = {},
+          ["core.syntax"] = {},
           ["core.dirman"] = {
             config = {
               workspaces = {
@@ -41,6 +45,22 @@ return {
           },
         },
       }
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "norg" },
+        sync_install = false, -- Install parsers synchronously (only applied to `ensure_installed`)
+        ignore_install = {}, -- List of parsers to ignore installing
+        auto_install = true, -- Automatically install missing parsers when entering buffer
+        highlight = {
+          enable = true,
+        },
+        modules = {}, -- Additional modules configuration
+      })
     end,
   },
 }
