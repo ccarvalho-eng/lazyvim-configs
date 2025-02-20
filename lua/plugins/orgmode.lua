@@ -42,7 +42,7 @@ return {
           "** TODO Email",
           "** TODO Calendar",
           "",
-          "* Events",
+          "* One-off Events",
           "** ",
           "",
           "* Tasks [/]",
@@ -51,18 +51,6 @@ return {
           "* Learnings",
           "** ",
           "",
-          "* End of Day Review",
-          "** Done",
-          "   - ",
-          "",
-          "** Doing",
-          "   - ",
-          "",
-          "** Up Next",
-          "   - ",
-          "",
-          "** Reflections",
-          "   - ",
         }
         return table.concat(template, "\n")
       end
