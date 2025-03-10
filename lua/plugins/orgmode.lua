@@ -40,6 +40,7 @@ return {
           "** TODO Messages",
           "** TODO Email",
           "** TODO Calendar",
+          "** TODO GitHub",
           "",
           "* Events",
           "** TODO Standup",
