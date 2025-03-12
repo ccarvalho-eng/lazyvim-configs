@@ -47,7 +47,7 @@ return {
           "   :PROPERTIES:",
           "   :CATEGORY: work",
           "   :END:",
-          "   SCHEDULED: <" .. date .. " 13:30>",
+          "   SCHEDULED: <" .. date .. " 15:30>",
           "",
           "* Tasks [/]",
           "** TODO ",
