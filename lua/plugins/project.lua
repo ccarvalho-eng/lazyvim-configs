@@ -26,6 +26,8 @@ return {
       "requirements.txt",
       -- Rust
       "Cargo.toml",
+      -- Note taking
+      ".obsidian/workspace.json",
     },
     ignore_lsp = {},
     exclude_dirs = {},
