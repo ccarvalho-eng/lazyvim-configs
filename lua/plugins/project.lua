@@ -14,7 +14,7 @@ return {
       "Makefile",
       "package.json",
       -- Elixir
-      "mix.exs",
+      "config/config.exs",
       -- Erlang
       "rebar.config",
       "erlang.mk",
