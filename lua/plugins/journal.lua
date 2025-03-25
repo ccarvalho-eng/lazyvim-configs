@@ -15,7 +15,7 @@ return {
 - [ ] Breakfast
 - [ ] House chores
 
-## 📥 Inbox 
+## 📥 Inbox
 <!-- Daily inbox checklist -->
 
 - [ ] Messages
@@ -26,13 +26,16 @@ return {
 <!-- Key tasks and objectives for the day -->
 
 ### Must Do (P1)
-- [ ] 
+
+- [ ]
 
 ### Should Do (P2)
-- [ ] 
+
+- [ ]
 
 ### Nice to Do (P3)
-- [ ] 
+
+- [ ]
 
 ### 📝 Tasks
 <!-- Detailed task list with status -->
@@ -42,31 +45,30 @@ return {
 - Up Next
 - Blockers
 
-
 ## 📝 Notes & Ideas
 <!-- Capture thoughts, ideas, and insights throughout the day -->
 
-- 
+-
 
 ## 🤝 Interactions
 <!-- Key meetings, conversations, and collaborations -->
 
-- 
+-
 
 ## 🌟 Today's Highlights
 <!-- Memorable moments and key achievements -->
 
-- 
+-
 
 ## 🌙 EOD Reflection
 <!-- Reflect on the day's progress and learnings -->
 
-- 
+-
 
 ## 🔮 Tomorrow's Prep
 <!-- Set yourself up for success tomorrow -->
 
-- [ ] 
+- [ ]
 
 ]]
 
