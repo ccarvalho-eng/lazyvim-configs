@@ -14,7 +14,8 @@ return {
       "Makefile",
       "package.json",
       -- Elixir
-      "config/config.exs",
+      "apps/", -- Umbrella project indicator
+      "mix.exs",
       -- Erlang
       "rebar.config",
       "erlang.mk",
@@ -42,15 +43,20 @@ return {
   },
   config = function(_, opts)
     require("project_nvim").setup(opts)
+
     local history = require("project_nvim.utils.history")
-    history.delete_project = function(project)
-      for k, v in pairs(history.recent_projects) do
-        if v == project.value then
-          history.recent_projects[k] = nil
-          return
+    if not history._original_delete_project then
+      history._original_delete_project = history.delete_project
+      history.delete_project = function(project)
+        for k, v in pairs(history.recent_projects) do
+          if v == project.value then
+            history.recent_projects[k] = nil
+            return
+          end
         end
       end
     end
+
     LazyVim.on_load("fzf-lua.nvim", function()
       require("fzf-lua").load_extension("projects")
     end)
