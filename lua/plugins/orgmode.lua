@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     ft = { "org" },
     config = function()
-      local agenda_dir = os.getenv("ORG_AGENDA_FILES")
+      local agenda_dir = os.getenv("ORG_FILES")
       local journal_dir = agenda_dir .. "/journal"
 
       -- Create journal directory if it doesn't exist
@@ -94,7 +94,7 @@ return {
 
       -- Keymaps
       vim.keymap.set("n", "<Leader>on", function()
-        vim.cmd("Ex " .. os.getenv("ORG_DEFAULT_NOTES_FILE"))
+        vim.cmd("Ex " .. os.getenv("ORG_FILES"))
       end, { desc = "Open org notes directory" })
 
       vim.keymap.set("n", "<Leader>oj", function()
