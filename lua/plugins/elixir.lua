@@ -151,9 +151,9 @@ end]],
 
   -- Credo Integration using Null-LS for Linting
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim", -- Using the community fork instead of jose-elias-alvarez/null-ls.nvim
     opts = function(_, opts)
-      local nls = require("null-ls")
+      local nls = require("null-ls") -- The require name remains "null-ls" for API compatibility
       opts.sources = vim.list_extend(opts.sources or {}, {
         nls.builtins.diagnostics.credo.with({
           condition = function(utils)
