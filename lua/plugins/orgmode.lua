@@ -16,6 +16,8 @@ return {
         org_agenda_files = { agenda_dir .. "/*/*.org" },
         org_default_notes_file = agenda_dir .. "/notes.org",
 
+        org_todo_keywords = { "TODO", "STRT", "WAIT", "|", "DONE", "SKIP" },
+
         -- Configure journal settings
         org_journal = {
           dir = journal_dir,
