@@ -19,8 +19,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
     local input_file = vim.fn.expand("%:p")
     local output_file = vim.fn.expand("%:p:r") .. ".png"
-    local width = "1200"
-    local height = "800"
+    local width = "2880"
+    local height = "1620"
 
     ensure_mermaid_theme(input_file)
 
@@ -53,3 +53,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     })
   end,
 })
+
+-- Keymap to open the exported Mermaid diagram using macOS Preview
+vim.keymap.set("n", "<leader>op", function()
+  local output_file = vim.fn.expand("%:p:r") .. ".png"
+  vim.fn.jobstart({ "open", output_file })
+end, { desc = "Open exported Mermaid diagram in Preview" })
