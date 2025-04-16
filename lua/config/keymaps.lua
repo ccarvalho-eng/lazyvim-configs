@@ -19,3 +19,8 @@ vim.api.nvim_set_keymap("n", "gT", ":BufferLineCyclePrev<CR>", { noremap = true,
 
 -- Keybinding to delete all buffers
 vim.keymap.set("n", "<leader>bK", ":%bd<CR>", { noremap = true, silent = true, desc = "Close all buffers" })
+
+-- Kwymap for getting the current file path
+vim.keymap.set("n", "<leader>fl", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Copy current file path to clipboard" })
