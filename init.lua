@@ -21,9 +21,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     local output_file = vim.fn.expand("%:p:r") .. ".png"
     local width = "2880"
     local height = "1620"
-
     ensure_mermaid_theme(input_file)
-
     vim.fn.jobstart({
       "mmdc",
       "-i",
@@ -40,11 +38,18 @@ vim.api.nvim_create_autocmd("BufWritePost", {
       on_exit = function(_, code)
         if code == 0 then
           print("Mermaid diagram exported to " .. output_file)
-          local win_id = vim.fn.bufwinid(output_file)
-          if win_id == -1 then
-            vim.cmd("vsplit " .. output_file)
+          local png_bufnr = vim.fn.bufnr(output_file)
+
+          if png_bufnr ~= -1 then
+            -- Buffer exists, refresh it
+            for _, win_id in ipairs(vim.fn.win_findbuf(png_bufnr)) do
+              vim.api.nvim_win_call(win_id, function()
+                vim.cmd("edit!") -- Force reload the buffer
+              end)
+            end
           else
-            vim.api.nvim_set_current_win(win_id)
+            -- Buffer doesn't exist, open it
+            vim.cmd("vsplit " .. output_file)
           end
         else
           print("Failed to export Mermaid diagram")
