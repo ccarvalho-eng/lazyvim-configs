@@ -44,7 +44,7 @@ return {
           "** TODO Email",
           "** TODO Messages",
           "",
-          "* Goals [/]",
+          "* Goals",
           "1. ",
           "",
           "* Tasks [/]",
