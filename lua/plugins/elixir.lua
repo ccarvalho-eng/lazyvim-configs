@@ -155,11 +155,14 @@ end]],
     opts = function(_, opts)
       local nls = require("null-ls") -- The require name remains "null-ls" for API compatibility
       opts.sources = vim.list_extend(opts.sources or {}, {
+        -- Linting with Credo
         nls.builtins.diagnostics.credo.with({
           condition = function(utils)
             return utils.root_has_file(".credo.exs")
           end,
         }),
+        -- Formatting with Mix format
+        nls.builtins.formatting.mix,
       })
     end,
   },
