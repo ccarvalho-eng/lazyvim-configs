@@ -3,49 +3,6 @@ return {
   -- LSP Configuration for Elixir
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        elixirls = {
-          -- ElixirLS Pipe Manipulation Keybindings
-          keys = {
-            -- Convert to Pipe
-            {
-              "<leader>cp",
-              function()
-                local params = vim.lsp.util.make_position_params(0, "utf-8")
-                LazyVim.lsp.execute({
-                  command = "manipulatePipes:serverid",
-                  arguments = { "toPipe", params.textDocument.uri, params.position.line, params.position.character },
-                })
-              end,
-              desc = "Convert to Pipe",
-            },
-            -- Convert from Pipe
-            {
-              "<leader>cP",
-              function()
-                local params = vim.lsp.util.make_position_params(0, "utf-8")
-                LazyVim.lsp.execute({
-                  command = "manipulatePipes:serverid",
-                  arguments = { "fromPipe", params.textDocument.uri, params.position.line, params.position.character },
-                })
-              end,
-              desc = "Convert from Pipe",
-            },
-            -- Append |> dbg()
-            {
-              "<leader>cI",
-              function()
-                local line = vim.api.nvim_get_current_line()
-                local new_line = line .. " |> dbg()"
-                vim.api.nvim_set_current_line(new_line)
-              end,
-              desc = "Append |> dbg()",
-            },
-          },
-        },
-      },
-    },
   },
 
   -- Treesitter Configuration for Elixir and Related Languages
