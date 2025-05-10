@@ -18,7 +18,7 @@ return {
     "jfpedroza/neotest-elixir",
   },
 
-  -- Optional: Neotest configuration with Elixir adapter
+  -- Neotest configuration with Elixir adapter
   {
     "nvim-neotest/neotest",
     opts = {
@@ -52,7 +52,7 @@ return {
     end,
   },
 
-  -- Optional: Credo Linting using nvim-lint
+  -- Credo Linting using nvim-lint
   {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
