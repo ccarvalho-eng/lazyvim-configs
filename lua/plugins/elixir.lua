@@ -1,4 +1,24 @@
 -- Elixir Language Server and Plugin Configuration for LazyVim
+-- Add keybinding for Elixir debugging
+local function setup_elixir_keys()
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "elixir", "heex", "eex" },
+    callback = function()
+      -- Map <leader>cD to append |> dbg() to current line
+      vim.api.nvim_buf_set_keymap(
+        0,
+        "n",
+        "<leader>cD",
+        ":lua vim.api.nvim_set_current_line(vim.api.nvim_get_current_line() .. ' |> dbg()')<CR>",
+        { noremap = true, silent = true, desc = "Append |> dbg() to current line" }
+      )
+    end,
+  })
+end
+
+-- Call the setup function
+setup_elixir_keys()
+
 return {
   -- LSP Configuration for Elixir
   {
