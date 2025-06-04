@@ -16,7 +16,7 @@ return {
         org_agenda_files = { agenda_dir .. "/*/*.org" },
         org_default_notes_file = agenda_dir .. "/notes.org",
 
-        org_todo_keywords = { "TODO", "STRT", "WAIT", "|", "DONE", "SKIP" },
+        org_todo_keywords = { "TODO", "WAIT", "|", "DONE", "PASS" },
 
         -- Configure journal settings
         org_journal = {
@@ -32,19 +32,7 @@ return {
           "#+TITLE: Journal Entry " .. date,
           "#+DATE: [" .. date .. "]",
           "",
-          "* Morning Routine [/]",
-          "** TODO Exercise",
-          "** TODO Meditation",
-          "** TODO Reading",
-          "** TODO House Chores",
-          "",
-          "* Inbox [/]",
-          "** TODO Calendar",
-          "** TODO Email",
-          "** TODO Messages",
-          "",
-          "* Tasks [/]",
-          "** TODO ",
+          "* ",
           "",
         }
         return table.concat(template, "\n")
