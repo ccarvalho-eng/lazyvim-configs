@@ -4,8 +4,8 @@ return {
     event = "VeryLazy",
     ft = { "org" },
     config = function()
-      local agenda_dir = os.getenv("ORG_FILES")
-      local journal_dir = agenda_dir .. "/journal"
+      local org_files = os.getenv("ORG_FILES")
+      local journal_dir = org_files .. "/journal"
 
       -- Create journal directory if it doesn't exist
       if vim.fn.isdirectory(journal_dir) == 0 then
@@ -13,8 +13,8 @@ return {
       end
 
       require("orgmode").setup({
-        org_agenda_files = { agenda_dir .. "/*/*.org" },
-        org_default_notes_file = agenda_dir .. "/notes.org",
+        org_agenda_files = { org_files .. "/*/*.org" },
+        org_default_notes_file = org_files .. "/notes.org",
 
         org_todo_keywords = { "TODO", "WAIT", "|", "DONE", "PASS" },
 
