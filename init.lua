@@ -37,20 +37,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     }, {
       on_exit = function(_, code)
         if code == 0 then
-          print("Mermaid diagram exported to " .. output_file)
-          local png_bufnr = vim.fn.bufnr(output_file)
-
-          if png_bufnr ~= -1 then
-            -- Buffer exists, refresh it
-            for _, win_id in ipairs(vim.fn.win_findbuf(png_bufnr)) do
-              vim.api.nvim_win_call(win_id, function()
-                vim.cmd("edit!") -- Force reload the buffer
-              end)
-            end
-          else
-            -- Buffer doesn't exist, open it
-            vim.cmd("vsplit " .. output_file)
-          end
+          print("Mermaid diagram exported to " .. vim.fn.fnamemodify(output_file, ":~:."))
         else
           print("Failed to export Mermaid diagram")
         end
