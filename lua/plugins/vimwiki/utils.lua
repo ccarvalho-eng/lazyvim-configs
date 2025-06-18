@@ -41,7 +41,7 @@ function M.weekly_note()
   local year = date.year
   local week_start = os.date("%Y-%m-%d", os.time() - (date.wday - 2) * 86400)
 
-  local filename = string.format("journal/weekly/%d-W%02d.md", year, week_num)
+  local filename = string.format("chronicles/weekly/%d-W%02d.md", year, week_num)
   local filepath = get_wiki_path() .. filename
 
   local template = string.format(
@@ -85,7 +85,7 @@ function M.monthly_note()
   local year = date.year
   local month_num = date.month
 
-  local filename = string.format("journal/monthly/%d-%02d-%s.md", year, month_num, month_name)
+  local filename = string.format("chronicles/monthly/%d-%02d-%s.md", year, month_num, month_name)
   local filepath = get_wiki_path() .. filename
 
   local template = string.format(
@@ -135,7 +135,7 @@ function M.quarterly_note()
   local quarter = math.ceil(date.month / 3)
   local year = date.year
 
-  local filename = string.format("journal/quarterly/%d-Q%d.md", year, quarter)
+  local filename = string.format("chronicles/quarterly/%d-Q%d.md", year, quarter)
   local filepath = get_wiki_path() .. filename
 
   local months = {
@@ -191,8 +191,7 @@ end
 
 function M.yearly_note()
   local year = os.date("%Y")
-  local filename = string.format("journal/yearly/%s-Year-Review.md", year)
-  local filepath = get_wiki_path() .. filename
+  local filename = string.format("chronicles/yearly/%s-Year-Review.md", year)
   local filepath = get_wiki_path() .. filename
 
   local template = string.format(
@@ -237,9 +236,8 @@ function M.daily_diary()
   local date_str = os.date("%Y-%m-%d")
   local date_str = os.date("%Y-%m-%d")
   local day_name = os.date("%A")
-  local filename = string.format("journal/diary/%s.md", date_str)
+  local filename = string.format("diary/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
-
   local template = string.format(
     [[# %s - %s
 
@@ -283,9 +281,9 @@ end
 
 function M.quick_diary()
   local date_str = os.date("%Y-%m-%d")
-  local filename = string.format("journal/diary/%s.md", date_str)
+  local date_str = os.date("%Y-%m-%d")
+  local filename = string.format("diary/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
-
   local template = string.format(
     [[# %s
 
@@ -310,9 +308,8 @@ end
 function M.diary_with_time()
   local date_str = os.date("%Y-%m-%d")
   local time_str = os.date("%H:%M")
-  local filename = string.format("journal/diary/%s.md", date_str)
+  local filename = string.format("diary/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
-  local expanded_path = vim.fn.expand(filepath)
   local file_exists = vim.fn.filereadable(expanded_path) == 1
 
   if file_exists then
