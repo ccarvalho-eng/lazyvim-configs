@@ -312,7 +312,6 @@ function M.diary_with_time()
   local time_str = os.date("%H:%M")
   local filename = string.format("journal/diary/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
-  local filepath = get_wiki_path() .. filename
   local expanded_path = vim.fn.expand(filepath)
   local file_exists = vim.fn.filereadable(expanded_path) == 1
 
