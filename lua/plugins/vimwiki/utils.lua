@@ -236,7 +236,7 @@ function M.daily_diary()
   local date_str = os.date("%Y-%m-%d")
   local date_str = os.date("%Y-%m-%d")
   local day_name = os.date("%A")
-  local filename = string.format("diary/%s.md", date_str)
+  local filename = string.format("journal/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
   local template = string.format(
     [[# %s - %s
@@ -281,8 +281,7 @@ end
 
 function M.quick_diary()
   local date_str = os.date("%Y-%m-%d")
-  local date_str = os.date("%Y-%m-%d")
-  local filename = string.format("diary/%s.md", date_str)
+  local filename = string.format("journal/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
   local template = string.format(
     [[# %s
@@ -308,7 +307,7 @@ end
 function M.diary_with_time()
   local date_str = os.date("%Y-%m-%d")
   local time_str = os.date("%H:%M")
-  local filename = string.format("diary/%s.md", date_str)
+  local filename = string.format("journal/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
   local file_exists = vim.fn.filereadable(expanded_path) == 1
 
