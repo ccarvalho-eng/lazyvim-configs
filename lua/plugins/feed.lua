@@ -3,12 +3,13 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
+    "neo451/snacks.nvim",
   },
   opts = {
     feeds = {
       -- News
       "https://feeds.bbci.co.uk/news/world/rss.xml",
-      "http://feeds.reuters.com/reuters/topNews",
+      "https://news.google.com/rss/search?q=site%3Areuters.com&hl=en-US&gl=US&ceid=US%3A",
       "https://www.theguardian.com/international/rss",
       "https://apnews.com/rss",
       "https://rss.dw.com/rdf/rss-en-all",
