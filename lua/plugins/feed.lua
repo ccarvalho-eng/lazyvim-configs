@@ -6,22 +6,22 @@ return {
   opts = {
     feeds = {
       news = {
-        world = {
+        international = {
           { "https://feeds.bbci.co.uk/news/world/rss.xml", name = "BBC News" },
           { "https://www.theguardian.com/international/rss", name = "The Guardian" },
           { "https://rss.dw.com/rdf/rss-en-all", name = "Deutsche Welle" },
           { "https://rss.app/feeds/rA3OZudwJXtrWbCO.xml", name = "Reuters" },
+          { "https://www.aljazeera.com/xml/rss/all.xml", name = "Al Jazeera" },
         },
         portugal = {
-          { "https://feeds.feedburner.com/PublicoRSS", name = "Publico" },
+          national = {
+            { "https://feeds.feedburner.com/PublicoRSS", name = "Publico" },
+          },
           coimbra = {
             { "https://rss.app/feeds/dqtxv8A8mZA90HQZ.xml", name = "Diário de Coimbra" },
             { "https://rss.app/feeds/guCkXl4qJDh3wqRR.xml", name = "As Beiras" },
           },
         },
-      },
-      events = {
-        { "https://rss.app/feeds/UCrbxZpXzRyav6Uq.xml", name = "Agenda Cultura de Coimbra" },
       },
       tech = {
         security = {
@@ -34,39 +34,41 @@ return {
           { "https://www.darkreading.com/rss.xml", name = "Dark Reading" },
         },
         programming = {
-          { "https://news.ycombinator.com/rss", name = "Hacker News" },
-          { "https://lobste.rs/rss", name = "Lobsters" },
-          { "https://www.oreilly.com/radar/feed/index.xml", name = "O'Reilly Radar" },
+          general = {
+            { "https://news.ycombinator.com/rss", name = "Hacker News" },
+            { "https://lobste.rs/rss", name = "Lobsters" },
+            { "https://www.oreilly.com/radar/feed/index.xml", name = "O'Reilly Radar" },
+            { "https://github.blog/feed/", name = "GitHub Blog" },
+            { "https://martinfowler.com/feed.atom", name = "Martin Fowler" },
+          },
+          languages = {
+            elixir = {
+              { "https://elixirstatus.com/rss", name = "Elixir Status" },
+              { "https://rss.app/feeds/1qjJmqgEhqLduwpr.xml", name = "Elixir Blog" },
+            },
+          },
         },
-        general = {
+        news = {
           { "https://arstechnica.com/feed/", name = "Ars Technica" },
           { "https://www.technologyreview.com/feed/", name = "MIT Technology Review" },
         },
       },
-      programming = {
-        elixir = {
-          { "https://elixirstatus.com/rss", name = "Elixir Status" },
-          { "https://rss.app/feeds/1qjJmqgEhqLduwpr.xml", name = "Elixir Blog" },
+      culture = {
+        events = {
+          { "https://rss.app/feeds/UCrbxZpXzRyav6Uq.xml", name = "Agenda Cultura de Coimbra" },
         },
-      },
-      gaming = {
-        { "https://www.pcgamer.com/rss/", name = "PC Gamer" },
-        { "https://www.rockpapershotgun.com/feed", name = "Rock Paper Shotgun" },
-        { "https://www.eurogamer.net/?format=rss", name = "Eurogamer" },
-        { "https://kotaku.com/rss", name = "Kotaku" },
-      },
-      literature = {
-        { "https://lithub.com/feed/", name = "Literary Hub" },
-        { "https://www.nybooks.com/feed/", name = "NY Books" },
-        { "https://www.theparisreview.org/blog/feed/", name = "The Paris Review" },
-        { "https://www.tor.com/feed/", name = "Tor.com", subcategory = "sci-fi/fantasy" },
-      },
-      sports = {
-        f1 = {
-          { "https://rss.app/feeds/3Ckbj4GdOcpA1h0w.xml", name = "Formula 1" },
+        literature = {
+          general = {
+            { "https://lithub.com/feed/", name = "Literary Hub" },
+            { "https://www.nybooks.com/feed/", name = "NY Books" },
+            { "https://www.theparisreview.org/blog/feed/", name = "The Paris Review" },
+          },
+          genres = {
+            { "https://www.tor.com/feed/", name = "Tor.com", subcategory = "sci-fi/fantasy" },
+          },
         },
-        chess = {
-          { "https://rss.app/feeds/fRBQ0oVwhnsEdlCI.xml", name = "Chess.com News" },
+        discoveries = {
+          { "https://www.atlasobscura.com/feeds/latest", name = "Atlas Obscura" },
         },
       },
       science = {
@@ -75,9 +77,24 @@ return {
           { "https://apod.nasa.gov/apod.rss", name = "Astronomy Picture of the Day" },
         },
       },
+      entertainment = {
+        gaming = {
+          { "https://www.pcgamer.com/rss/", name = "PC Gamer" },
+          { "https://www.rockpapershotgun.com/feed", name = "Rock Paper Shotgun" },
+          { "https://www.eurogamer.net/?format=rss", name = "Eurogamer" },
+          { "https://kotaku.com/rss", name = "Kotaku" },
+        },
+        sports = {
+          motorsports = {
+            { "https://rss.app/feeds/3Ckbj4GdOcpA1h0w.xml", name = "Formula 1" },
+          },
+          chess = {
+            { "https://rss.app/feeds/fRBQ0oVwhnsEdlCI.xml", name = "Chess.com News" },
+          },
+        },
+      },
     },
   },
-
   -- Key mappings for easy access
   keys = {
     { "<leader>rf", "<cmd>Feed index<cr>", desc = "Open RSS Feed Reader" },
