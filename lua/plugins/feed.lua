@@ -8,15 +8,16 @@ return {
       news = {
         world = {
           { "https://feeds.bbci.co.uk/news/world/rss.xml", name = "BBC News" },
-          { "https://rss.app/feeds/3e6T5XdYVjnUTNcl.xml", name = "Reuters" },
           { "https://www.theguardian.com/international/rss", name = "The Guardian" },
-          { "https://apnews.com/rss", name = "AP News" },
           { "https://rss.dw.com/rdf/rss-en-all", name = "Deutsche Welle" },
+          { "https://rss.app/feeds/rA3OZudwJXtrWbCO.xml", name = "Reuters" },
         },
         portugal = {
           { "https://feeds.feedburner.com/PublicoRSS", name = "Publico" },
-          { "https://rss.app/feeds/rDeVuByvrhHCEq8u.xml", name = "Diário de Coimbra" },
-          { "https://rss.app/feeds/KKI3UD2z11ZmCxKV.xml", name = "As Beiras" },
+          coimbra = {
+            { "https://rss.app/feeds/dqtxv8A8mZA90HQZ.xml", name = "Diário de Coimbra" },
+            { "https://rss.app/feeds/guCkXl4qJDh3wqRR.xml", name = "As Beiras" },
+          },
         },
       },
       events = {
@@ -24,7 +25,7 @@ return {
       },
       tech = {
         security = {
-          { "https://krebsonsecurity.com/feed/", name = "Krebs on Security" },
+          { "https://podcast.darknetdiaries.com/", name = "DarkNet Diaries" },
           { "https://feeds.feedburner.com/TheHackersNews", name = "The Hacker News" },
           { "https://www.bleepingcomputer.com/feed/", name = "Bleeping Computer" },
           { "https://threatpost.com/feed/", name = "Threatpost" },
@@ -45,9 +46,7 @@ return {
       programming = {
         elixir = {
           { "https://elixirstatus.com/rss", name = "Elixir Status" },
-        },
-        erlang = {
-          { "https://www.theerlangelist.com/rss", name = "The Erlangelist" },
+          { "https://rss.app/feeds/1qjJmqgEhqLduwpr.xml", name = "Elixir Blog" },
         },
       },
       gaming = {
@@ -62,30 +61,18 @@ return {
         { "https://www.theparisreview.org/blog/feed/", name = "The Paris Review" },
         { "https://www.tor.com/feed/", name = "Tor.com", subcategory = "sci-fi/fantasy" },
       },
-      personal = {
-        mindfulness = {
-          { "https://zenhabits.net/feed/", name = "Zen Habits" },
-          { "https://www.mindful.org/feed/", name = "Mindful.org" },
-          { "https://www.raptitude.com/feed/", name = "Raptitude" },
-        },
-      },
       sports = {
         f1 = {
-          { "https://www.formula1.com/en/latest.rss", name = "Formula 1" },
-          { "https://www.fia.com/rss/press-release", name = "FIA Press Releases" },
-          { "https://www.autosport.com/rss/f1/news", name = "Autosport F1" },
-          { "https://f1tv-rss.vercel.app/api/rss", name = "F1 TV" },
+          { "https://rss.app/feeds/3Ckbj4GdOcpA1h0w.xml", name = "Formula 1" },
+        },
+        chess = {
+          { "https://rss.app/feeds/fRBQ0oVwhnsEdlCI.xml", name = "Chess.com News" },
         },
       },
       science = {
         space = {
           { "https://www.nasa.gov/news-release/feed/", name = "NASA Breaking News" },
           { "https://apod.nasa.gov/apod.rss", name = "Astronomy Picture of the Day" },
-          { "https://science.nasa.gov/feeds/news.xml", name = "NASA Science News" },
-          { "https://earthobservatory.nasa.gov/Feeds/rss/eo.rss", name = "NASA Earth Observatory" },
-          { "https://www.jpl.nasa.gov/feeds/news.xml", name = "Jet Propulsion Laboratory" },
-          { "https://spaceflightnow.com/feed/", name = "Spaceflight Now" },
-          { "https://www.planetary.org/blogs/index.xml", name = "Planetary Society" },
         },
       },
     },
@@ -93,7 +80,7 @@ return {
 
   -- Key mappings for easy access
   keys = {
-    { "<leader>rf", "<cmd>Feed<cr>", desc = "Open RSS Feed Reader" },
+    { "<leader>rf", "<cmd>Feed index<cr>", desc = "Open RSS Feed Reader" },
     { "<leader>ru", "<cmd>Feed update<cr>", desc = "Update All RSS Feeds" },
   },
 }
