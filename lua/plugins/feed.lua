@@ -13,9 +13,18 @@ return {
           { "https://rss.app/feeds/rA3OZudwJXtrWbCO.xml", name = "Reuters" },
           { "https://www.aljazeera.com/xml/rss/all.xml", name = "Al Jazeera" },
         },
+        brazil = {
+          { "https://feeds.bbci.co.uk/portuguese/rss.xml", "BBC Brazil" },
+        },
         portugal = {
           national = {
             { "https://feeds.feedburner.com/PublicoRSS", name = "Publico" },
+            {
+              "https://rss.impresa.pt/feed/latest/expresso.rss?type=ARTICLE,VIDEO,GALLERY,STREAM,PLAYLIST,EVENT,NEWSLETTER&limit=20&pubsubhub=true",
+              name = "Expresso",
+            },
+            { "http://feeds.jn.pt/JN-ultimas", name = "Jornal de Notícias" },
+            { "http://feeds.dn.pt/DN-Ultimas", name = "Diário de Notícias" },
           },
           coimbra = {
             { "https://rss.app/feeds/dqtxv8A8mZA90HQZ.xml", name = "Diário de Coimbra" },
