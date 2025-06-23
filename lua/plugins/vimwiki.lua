@@ -4,7 +4,7 @@ return {
   keys = {
     { "<leader>ww", "<cmd>VimwikiIndex<cr>", desc = "VimWiki Index" },
     { "<leader>wt", "<cmd>VimwikiTabIndex<cr>", desc = "VimWiki Tab Index" },
-    { "<leader>ws", "<cmd>VimwikiUISelect<cr>", desc = "VimWiki Select" },
+    { "<leader>wS", "<cmd>VimwikiUISelect<cr>", desc = "VimWiki Select" },
     { "<leader>wi", "<cmd>VimwikiDiaryIndex<cr>", desc = "VimWiki Diary Index" },
     { "<leader>w<leader>w", "<cmd>VimwikiMakeDiaryNote<cr>", desc = "VimWiki Make Diary Note" },
     { "<leader>w<leader>t", "<cmd>VimwikiTabMakeDiaryNote<cr>", desc = "VimWiki Tab Make Diary Note" },
