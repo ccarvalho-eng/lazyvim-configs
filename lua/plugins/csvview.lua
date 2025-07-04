@@ -1,5 +1,6 @@
 return {
   "hat0uma/csvview.nvim",
+  event = "VeryLazy",
   ---@module "csvview"
   ---@type CsvView.Options
   opts = {

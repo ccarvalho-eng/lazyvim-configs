@@ -24,14 +24,35 @@ end
 local function create_or_open_file(filepath, template_content)
   local expanded_path = vim.fn.expand(filepath)
   local dir = vim.fn.fnamemodify(expanded_path, ":h")
-  vim.fn.mkdir(dir, "p")
+  if vim.fn.isdirectory(dir) == 0 then
+    local ok = vim.fn.mkdir(dir, "p")
+    if ok == 0 then
+      vim.notify("Failed to create directory: " .. dir, vim.log.levels.ERROR)
+      return
+    end
+  end
 
   local file_exists = vim.fn.filereadable(expanded_path) == 1
-  vim.cmd("edit " .. expanded_path)
+  local ok, err = pcall(vim.cmd, "edit " .. expanded_path)
+  if not ok then
+    vim.notify("Failed to open file: " .. expanded_path .. (err and (" (" .. err .. ")") or ""), vim.log.levels.ERROR)
+    return
+  end
 
   if not file_exists and template_content then
-    vim.api.nvim_buf_set_lines(0, 0, 0, false, vim.split(template_content, "\n"))
-    vim.cmd("write")
+    local ok_buf = pcall(vim.api.nvim_buf_set_lines, 0, 0, 0, false, vim.split(template_content, "\n"))
+    if not ok_buf then
+      vim.notify("Failed to set buffer lines for: " .. expanded_path, vim.log.levels.ERROR)
+      return
+    end
+    local ok_write, err_write = pcall(vim.cmd, "write")
+    if not ok_write then
+      vim.notify(
+        "Failed to write file: " .. expanded_path .. (err_write and (" (" .. err_write .. ")") or ""),
+        vim.log.levels.ERROR
+      )
+      return
+    end
   end
 end
 
@@ -233,7 +254,6 @@ function M.yearly_note()
 end
 
 function M.daily_diary()
-  local date_str = os.date("%Y-%m-%d")
   local date_str = os.date("%Y-%m-%d")
   local day_name = os.date("%A")
   local filename = string.format("journal/%s.md", date_str)

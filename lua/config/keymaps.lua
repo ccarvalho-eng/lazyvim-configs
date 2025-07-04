@@ -3,14 +3,19 @@
 -- Add any additional keymaps here
 
 -- Open terminal in a horizontal split with a specified height
-vim.api.nvim_set_keymap("n", "<leader>th", ":split | resize 20 | terminal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>th",
+  ":split | resize 20 | terminal<CR>",
+  { noremap = true, silent = true, desc = "Open terminal (horizontal split)" }
+)
 
 -- Open terminal in a vertical split with a specified width
 vim.api.nvim_set_keymap(
   "n",
   "<leader>tv",
   ":vsplit | vertical resize 80 | terminal<CR>",
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "Open terminal (vertical split)" }
 )
 
 -- Keybinding to delete all buffers

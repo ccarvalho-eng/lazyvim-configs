@@ -73,6 +73,7 @@ return {
   },
 
   -- Credo Linting using nvim-lint
+  --[[
   {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
@@ -88,6 +89,8 @@ return {
       }
     end,
   },
+  -- Disabled to avoid duplicate diagnostics with none-ls
+  ]]
 
   -- vim-test configuration
   {

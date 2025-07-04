@@ -3,6 +3,7 @@ return {
   {
     "navarasu/onedark.nvim",
     priority = 1000, -- Make sure it loads first
+    event = "VeryLazy",
     config = function()
       require("onedark").setup({
         -- Customize the theme here (optional)

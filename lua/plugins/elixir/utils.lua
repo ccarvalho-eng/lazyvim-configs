@@ -17,16 +17,28 @@ function M.switch_test_implementation()
   end
 
   if vim.fn.filereadable(target_file) == 1 then
-    vim.cmd("edit " .. target_file)
+    local ok, err = pcall(vim.cmd, "edit " .. target_file)
+    if not ok then
+      vim.notify("Failed to open file: " .. target_file .. (err and (" (" .. err .. ")") or ""), vim.log.levels.ERROR)
+      return
+    end
   else
     -- Create directory if it doesn't exist
     local target_dir = vim.fn.fnamemodify(target_file, ":h")
     if vim.fn.isdirectory(target_dir) == 0 then
-      vim.fn.mkdir(target_dir, "p")
+      local ok = vim.fn.mkdir(target_dir, "p")
+      if ok == 0 then
+        vim.notify("Failed to create directory: " .. target_dir, vim.log.levels.ERROR)
+        return
+      end
     end
 
     -- Create and open the new file
-    vim.cmd("edit " .. target_file)
+    local ok, err = pcall(vim.cmd, "edit " .. target_file)
+    if not ok then
+      vim.notify("Failed to open file: " .. target_file .. (err and (" (" .. err .. ")") or ""), vim.log.levels.ERROR)
+      return
+    end
 
     if current_file:match("%.ex$") then
       -- Extract full module path from the implementation file path
@@ -57,10 +69,21 @@ end]],
         )
 
         -- Insert the test module content
-        vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(test_content, "\n"))
+        local ok_buf = pcall(vim.api.nvim_buf_set_lines, 0, 0, -1, false, vim.split(test_content, "\n"))
+        if not ok_buf then
+          vim.notify("Failed to set buffer lines for: " .. target_file, vim.log.levels.ERROR)
+          return
+        end
 
         -- Save the file
-        vim.cmd("write")
+        local ok_write, err_write = pcall(vim.cmd, "write")
+        if not ok_write then
+          vim.notify(
+            "Failed to write file: " .. target_file .. (err_write and (" (" .. err_write .. ")") or ""),
+            vim.log.levels.ERROR
+          )
+          return
+        end
       end
     end
   end
