@@ -1,17 +1,18 @@
 return {
+  -- AVANTE + Copilot
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
+    version = false,
     opts = {
-      provider = "copilot", -- Select active provider here
+      provider = "copilot",
       providers = {
         copilot = {
           endpoint = "https://api.githubcopilot.com",
-          model = "gpt-4o-2024-05-13", -- or "gpt-4o", "gpt-4-turbo", "gpt-3.5-turbo"
-          proxy = nil, -- [protocol://]host[:port] Use this proxy
-          allow_insecure = false, -- Allow insecure server connections
-          timeout = 30000, -- Timeout in milliseconds
+          model = "claude-sonnet-4",
+          proxy = nil,
+          allow_insecure = false,
+          timeout = 30000,
           extra_request_body = {
             max_tokens = 4096,
             temperature = 0,
@@ -19,7 +20,7 @@ return {
         },
       },
       behaviour = {
-        auto_suggestions = false, -- Experimental stage
+        auto_suggestions = false,
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = false,
@@ -43,14 +44,8 @@ return {
           prev = "<M-[>",
           dismiss = "<C-]>",
         },
-        jump = {
-          next = "]]",
-          prev = "[[",
-        },
-        submit = {
-          normal = "<CR>",
-          insert = "<C-s>",
-        },
+        jump = { next = "]]", prev = "[[" },
+        submit = { normal = "<CR>", insert = "<C-s>" },
         sidebar = {
           apply_all = "A",
           apply_cursor = "a",
@@ -64,43 +59,18 @@ return {
         },
       },
       windows = {
-        position = "right", -- "right", "left", "top", "bottom"
+        position = "right",
         wrap = true,
-        width = 30, -- percentage based on available width
-        sidebar_header = {
-          enabled = true,
-          align = "center", -- "left", "center", "right"
-          rounded = true,
-        },
-        input = {
-          prefix = "> ",
-          height = 8,
-        },
-        edit = {
-          border = "rounded",
-          start_insert = true,
-        },
-        ask = {
-          floating = false,
-          start_insert = true,
-          border = "rounded",
-          focus_on_apply = "ours", -- "ours" or "theirs"
-        },
+        width = 30,
+        sidebar_header = { enabled = true, align = "center", rounded = true },
+        input = { prefix = "> ", height = 8 },
+        edit = { border = "rounded", start_insert = true },
+        ask = { floating = false, start_insert = true, border = "rounded", focus_on_apply = "ours" },
       },
       hints = { enabled = true },
-      diff = {
-        autojump = true,
-        list_opener = "copen",
-        override_timeoutlen = 500,
-      },
-      suggestion = {
-        debounce = 600,
-        throttle = 600,
-      },
-      selector = {
-        provider = "telescope", -- "native", "fzf_lua", "mini_pick", "telescope"
-        provider_opts = {},
-      },
+      diff = { autojump = true, list_opener = "copen", override_timeoutlen = 500 },
+      suggestion = { debounce = 600, throttle = 600 },
+      selector = { provider = "telescope", provider_opts = {} },
     },
     build = "make",
     dependencies = {
@@ -118,18 +88,14 @@ return {
           default = {
             embed_image_as_base64 = false,
             prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
+            drag_and_drop = { insert_mode = true },
             use_absolute_path = true,
           },
         },
       },
       {
         "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
+        opts = { file_types = { "markdown", "Avante" } },
         ft = { "markdown", "Avante" },
       },
     },
