@@ -1,16 +1,17 @@
 return {
-  -- AVANTE + OpenAI ChatGPT
+  -- AVANTE + Claude
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false,
+    build = "make",
     opts = {
-      provider = "openai",
+      provider = "claude",
       providers = {
-        openai = {
-          endpoint = "https://api.openai.com/v1/chat/completions",
-          model = "gpt-4o",
-          api_key = os.getenv("OPENAI_API_KEY"),
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-3-5-sonnet-20241022",
+          api_key = os.getenv("ANTHROPIC_API_KEY"),
           timeout = 30000,
           extra_request_body = {
             max_tokens = 4096,
@@ -71,7 +72,6 @@ return {
       suggestion = { debounce = 600, throttle = 600 },
       selector = { provider = "telescope", provider_opts = {} },
     },
-    build = "make",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
