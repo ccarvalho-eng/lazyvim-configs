@@ -1,21 +1,20 @@
 return {
-  -- AVANTE + Copilot
+  -- AVANTE + OpenAI ChatGPT
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false,
     opts = {
-      provider = "copilot",
+      provider = "openai",
       providers = {
-        copilot = {
-          endpoint = "https://api.githubcopilot.com",
-          model = "claude-sonnet-4",
-          proxy = nil,
-          allow_insecure = false,
+        openai = {
+          endpoint = "https://api.openai.com/v1/chat/completions",
+          model = "gpt-4o",
+          api_key = os.getenv("OPENAI_API_KEY"),
           timeout = 30000,
           extra_request_body = {
             max_tokens = 4096,
-            temperature = 0,
+            temperature = 0.7,
           },
         },
       },
@@ -80,7 +79,6 @@ return {
       "MunifTanjim/nui.nvim",
       "hrsh7th/nvim-cmp",
       "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua",
       {
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
