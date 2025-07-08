@@ -264,6 +264,12 @@ function M.daily_diary()
 ## 🔥 Focus
 - [ ]
 
+## 📥 Inbox
+- 
+
+## 📤 Outbox
+- 
+
 ## 📅 Schedule
 - Morning:
 - Afternoon:
