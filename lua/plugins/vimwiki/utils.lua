@@ -1,5 +1,15 @@
 local M = {}
 
+local function load_template(name)
+  local template_path = string.format("plugins.vimwiki.templates.%s", name)
+  local ok, template = pcall(require, template_path)
+  if not ok then
+    vim.notify("Failed to load template: " .. name, vim.log.levels.ERROR)
+    return nil
+  end
+  return template
+end
+
 local function get_wiki_path()
   local wiki_path = os.getenv("VIMWIKI_PATH")
   if wiki_path then
@@ -65,37 +75,12 @@ function M.weekly_note()
   local filename = string.format("chronicles/weekly/%d-W%02d.md", year, week_num)
   local filepath = get_wiki_path() .. filename
 
-  local template = string.format(
-    [[# Week %s, %d
+  local template_str = load_template("weekly")
+  if not template_str then
+    return
+  end
 
-**Start Date:** %s
-
-## 🏋️ Weekly Goals
-- [ ]
-
-## ✅ Wins
-- 
-
-## 📋 Habits
-
-| Habit        | M | T | W | T | F | S | S |
-|--------------|---|---|---|---|---|---|---|
-| Gym          |   |   |   |   |   |   |   |
-| Water (2L)   |   |   |   |   |   |   |   |
-| Sleep 8h     |   |   |   |   |   |   |   |
-
-## 📊 Review
-- Good:
-- Improve:
-- Focus:
-
----
-*Created: %s*]],
-    week_num,
-    year,
-    week_start,
-    os.date("%Y-%m-%d %H:%M")
-  )
+  local template = string.format(template_str, week_num, year, week_start, os.date("%Y-%m-%d %H:%M"))
 
   create_or_open_file(filepath, template)
 end
@@ -109,44 +94,12 @@ function M.monthly_note()
   local filename = string.format("chronicles/monthly/%d-%02d-%s.md", year, month_num, month_name)
   local filepath = get_wiki_path() .. filename
 
-  local template = string.format(
-    [[# %s %d
+  local template_str = load_template("monthly")
+  if not template_str then
+    return
+  end
 
-## 🎯 Goals
-- [ ]
-
-## 📌 Events
-- 
-
-## 🔧 Projects
-- 
-
-## 📋 Habit Tracker
-
-| Habit        | W1 | W2 | W3 | W4 | Notes         |
-|--------------|----|----|----|----|---------------|
-| Gym          |    |    |    |    |               |
-| Water (2L)   |    |    |    |    |               |
-| Reading      |    |    |    |    |               |
-
-## 🏆 Highlights
-- 
-
-## 📖 Reflection
-- Wins:
-- Challenges:
-- Lessons:
-
-## ⏭ Next Month
-- Focus:
-- Priorities:
-
----
-*Created: %s*]],
-    month_name,
-    year,
-    os.date("%Y-%m-%d %H:%M")
-  )
+  local template = string.format(template_str, month_name, year, os.date("%Y-%m-%d %H:%M"))
 
   create_or_open_file(filepath, template)
 end
@@ -166,46 +119,12 @@ function M.quarterly_note()
     [4] = "October - December",
   }
 
-  local template = string.format(
-    [[# Q%d %d (%s)
+  local template_str = load_template("quarterly")
+  if not template_str then
+    return
+  end
 
-## 🎯 OKRs
-
-| Objective      | Key Result        | Status |
-|----------------|-------------------|--------|
-|                |                   | [ ]    |
-|                |                   | [ ]    |
-
-## 📋 Overview
-- 
-
-## 🛠 Projects
-- 
-
-## 📈 Metrics
-
-| Metric         | Value |
-|----------------|-------|
-| Gym Hours      |       |
-| Books Read     |       |
-| Sleep Avg (h)  |       |
-
-## 📖 Review
-- Successes:
-- Struggles:
-- Insights:
-
-## 🔭 Next Quarter
-- Focus:
-- Key Projects:
-
----
-*Created: %s*]],
-    quarter,
-    year,
-    months[quarter],
-    os.date("%Y-%m-%d %H:%M")
-  )
+  local template = string.format(template_str, quarter, year, months[quarter], os.date("%Y-%m-%d %H:%M"))
 
   create_or_open_file(filepath, template)
 end
@@ -215,40 +134,12 @@ function M.yearly_note()
   local filename = string.format("chronicles/yearly/%s-Year-Review.md", year)
   local filepath = get_wiki_path() .. filename
 
-  local template = string.format(
-    [[# %s Year in Review
+  local template_str = load_template("yearly")
+  if not template_str then
+    return
+  end
 
-## 📋 Summary
-- 
-
-## 🏆 Goals
-- [ ]
-
-## 📈 Metrics
-
-| Area       | Metric        | Value |
-|------------|----------------|--------|
-| Health     | Gym Sessions   |        |
-| Personal   | Books Read     |        |
-| Sleep      | Avg Hours/Night|        |
-| Work       | Projects Done  |        |
-
-## 💡 Highlights
-- 
-
-## 🧠 Lessons
-- 
-
-## 🔮 Vision %d
-- Goals:
-- Focus:
-
----
-*Created: %s*]],
-    year,
-    tonumber(year) + 1,
-    os.date("%Y-%m-%d %H:%M")
-  )
+  local template = string.format(template_str, year, tonumber(year) + 1, os.date("%Y-%m-%d %H:%M"))
 
   create_or_open_file(filepath, template)
 end
@@ -258,49 +149,12 @@ function M.daily_diary()
   local day_name = os.date("%A")
   local filename = string.format("journal/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
-  local template = string.format(
-    [[# %s - %s
+  local template_str = load_template("daily")
+  if not template_str then
+    return
+  end
 
-## 🔥 Focus
-- [ ]
-
-## 📥 Inbox
-- 
-
-## 📤 Outbox
-- 
-
-## 📅 Schedule
-- Morning:
-- Afternoon:
-- Evening:
-
-## 💪 Wellness
-
-| Tracker    | Done? |
-|------------|--------|
-| Water      | [ ] [ ] [ ] [ ] [ ] [ ] [ ] |
-| Gym        | [ ]    |
-| Sleep 8h   | [ ]    |
-| Mood       | 🙂😐😞 |
-
-## 📝 Log
-- 
-
-## 💬 Reflection
-- Wins:
-- Challenges:
-- Notes:
-
-## ⏭ Tomorrow
-- [ ]
-
----
-*Created: %s*]],
-    day_name,
-    date_str,
-    os.date("%Y-%m-%d %H:%M")
-  )
+  local template = string.format(template_str, day_name, date_str, os.date("%Y-%m-%d %H:%M"))
 
   create_or_open_file(filepath, template)
 end
@@ -309,23 +163,12 @@ function M.quick_diary()
   local date_str = os.date("%Y-%m-%d")
   local filename = string.format("journal/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
-  local template = string.format(
-    [[# %s
+  local template_str = load_template("quick")
+  if not template_str then
+    return
+  end
 
-## Today
-- 
-
-## Tasks
-- [ ]
-
-## Notes
-- 
-
----
-*%s*]],
-    date_str,
-    os.date("%H:%M")
-  )
+  local template = string.format(template_str, date_str, os.date("%H:%M"))
 
   create_or_open_file(filepath, template)
 end
@@ -335,6 +178,7 @@ function M.diary_with_time()
   local time_str = os.date("%H:%M")
   local filename = string.format("journal/%s.md", date_str)
   local filepath = get_wiki_path() .. filename
+  local expanded_path = vim.fn.expand(filepath)
   local file_exists = vim.fn.filereadable(expanded_path) == 1
 
   if file_exists then
@@ -347,19 +191,12 @@ function M.diary_with_time()
     vim.api.nvim_win_set_cursor(0, { #lines + 1, 2 })
   else
     local day_name = os.date("%A")
-    local template = string.format(
-      [[# %s - %s
+    local template_str = load_template("time_entry")
+    if not template_str then
+      return
+    end
 
-## %s
-- 
-
----
-*Started: %s*]],
-      day_name,
-      date_str,
-      time_str,
-      os.date("%Y-%m-%d %H:%M")
-    )
+    local template = string.format(template_str, day_name, date_str, time_str, os.date("%Y-%m-%d %H:%M"))
 
     create_or_open_file(filepath, template)
     vim.schedule(function()
