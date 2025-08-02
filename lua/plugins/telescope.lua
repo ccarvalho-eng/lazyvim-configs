@@ -127,10 +127,39 @@ return {
 
     return {
       defaults = {
-        prompt_prefix = " ",
-        selection_caret = " ",
-        -- open files in the first window that is an actual file.
-        -- use the current window if no other window is available.
+        prompt_prefix = "   ",
+        selection_caret = "  ",
+        entry_prefix = "  ",
+        multi_icon = "<>",
+
+        layout_strategy = "horizontal",
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55,
+            results_width = 0.8,
+          },
+          vertical = {
+            mirror = false,
+          },
+          width = 0.87,
+          height = 0.80,
+          preview_cutoff = 120,
+        },
+
+        file_sorter = require("telescope.sorters").get_fuzzy_file,
+        file_ignore_patterns = { "%.git/", "node_modules", "%.npm" },
+        generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+        winblend = 0,
+        border = {},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        color_devicons = true,
+        set_env = { ["COLORTERM"] = "truecolor" },
+        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+        buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+
         get_selection_window = function()
           local wins = vim.api.nvim_list_wins()
           table.insert(wins, 1, vim.api.nvim_get_current_win())
@@ -162,6 +191,52 @@ return {
         find_files = {
           find_command = find_command,
           hidden = true,
+        },
+        live_grep = {
+          additional_args = function(opts)
+            return { "--hidden" }
+          end,
+        },
+        grep_string = {
+          additional_args = function(opts)
+            return { "--hidden" }
+          end,
+        },
+        buffers = {
+          theme = "dropdown",
+          previewer = false,
+          initial_mode = "normal",
+          mappings = {
+            i = {
+              ["<C-d>"] = actions.delete_buffer,
+            },
+            n = {
+              ["dd"] = actions.delete_buffer,
+            },
+          },
+        },
+        planets = {
+          show_pluto = true,
+          show_moon = true,
+        },
+        colorscheme = {
+          enable_preview = true,
+        },
+        lsp_references = {
+          theme = "dropdown",
+          initial_mode = "normal",
+        },
+        lsp_definitions = {
+          theme = "dropdown",
+          initial_mode = "normal",
+        },
+        lsp_declarations = {
+          theme = "dropdown",
+          initial_mode = "normal",
+        },
+        lsp_implementations = {
+          theme = "dropdown",
+          initial_mode = "normal",
         },
       },
     }
