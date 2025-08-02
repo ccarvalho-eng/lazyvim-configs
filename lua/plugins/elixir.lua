@@ -54,11 +54,11 @@ return {
     },
   },
 
-  -- Credo Integration using Null-LS for Linting
+  -- Credo Integration using none-ls (configured via LazyVim extra)
   {
-    "nvimtools/none-ls.nvim", -- Using the community fork instead of jose-elias-alvarez/null-ls.nvim
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
-      local nls = require("null-ls") -- The require name remains "null-ls" for API compatibility
+      local nls = require("null-ls")
       opts.sources = vim.list_extend(opts.sources or {}, {
         -- Linting with Credo
         nls.builtins.diagnostics.credo.with({
