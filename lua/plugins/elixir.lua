@@ -43,7 +43,10 @@ return {
     "nvim-neotest/neotest",
     opts = {
       adapters = {
-        ["neotest-elixir"] = {},
+        ["neotest-elixir"] = {
+          -- Allow test_helper.exs files
+          test_file_pattern = ".*%.exs$",
+        },
       },
     },
     dependencies = {
