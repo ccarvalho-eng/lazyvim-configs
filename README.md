@@ -1,6 +1,6 @@
 # 💤 LazyVim
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).  
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
 ---
@@ -24,19 +24,19 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 
 ## Keymaps
 
-| Keymap               | Mode | Description                         |
-| -------------------- | ---- | ----------------------------------- | ----------------- |
-| `<leader>cD`         | n    | Append `                            | > dbg()` (Elixir) |
-| `<leader>mti`        | n    | Switch test/implementation (Elixir) |
-| `<leader>mts`        | n    | Run nearest test (Elixir)           |
-| `<leader>mtv`        | n    | Run test file (Elixir)              |
-| `<leader>mta`        | n    | Run test suite (Elixir)             |
-| `<leader>mtr`        | n    | Run last test (Elixir)              |
-| `<leader>mtf`        | n    | Visit test file (Elixir)            |
-| `<leader>th`         | n    | Open terminal (horizontal split)    |
-| `<leader>tv`         | n    | Open terminal (vertical split)      |
-| `<leader>bK`         | n    | Close all buffers                   |
-| `<leader>fl`         | n    | Copy current file path to clipboard |
+| Keymap        | Mode | Description                             |
+| ------------- | ---- | --------------------------------------- |
+| `<leader>cD`  | n    | Append `|> dbg()` (Elixir)              |
+| `<leader>mti` | n    | Switch test/implementation (Elixir)     |
+| `<leader>mts` | n    | Run nearest test (Elixir)               |
+| `<leader>mtv` | n    | Run test file (Elixir)                  |
+| `<leader>mta` | n    | Run test suite (Elixir)                 |
+| `<leader>mtr` | n    | Run last test (Elixir)                  |
+| `<leader>mtf` | n    | Visit test file (Elixir)                |
+| `<leader>th`  | n    | Open terminal (horizontal split)        |
+| `<leader>tv`  | n    | Open terminal (vertical split)          |
+| `<leader>bK`  | n    | Close all buffers                       |
+| `<leader>fl`  | n    | Copy current file path to clipboard     |
 
 ---
 
