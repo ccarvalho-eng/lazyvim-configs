@@ -23,6 +23,21 @@ return {
   -- LSP Configuration for Elixir
   {
     "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        elixirls = {
+          cmd = { vim.fn.expand("~/.elixir-ls/release/language_server.sh") },
+          filetypes = { "elixir", "eelixir", "heex" },
+          root_dir = require("lspconfig.util").root_pattern("mix.exs", ".git"),
+          settings = {
+            elixirLS = {
+              dialyzerEnabled = false,
+              fetchDeps = false,
+            },
+          },
+        },
+      },
+    },
   },
 
   -- Treesitter Configuration for Elixir and Related Languages
