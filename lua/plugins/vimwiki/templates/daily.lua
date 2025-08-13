@@ -34,7 +34,7 @@ return [[# %s - %s
 ## Night Reflection
 
 - [ ] Lessons
-- [ ] Thriumphs
+- [ ] Triumphs
 
 ---
 *Created: %s*]]
