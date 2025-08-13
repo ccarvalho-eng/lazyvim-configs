@@ -1,27 +1,22 @@
 return [[# Q%d %d (%s)
 
-## 🎯 Goals
-- [ ]
+## The Path Reviewed
 
-## 🛠 Key Projects
-- 
+- [ ] Major Lessons
+- [ ] Hard-Won Achievements
+- [ ] Wounds & Failures
 
-## 📈 Metrics
+## The Ledger
 
-| Metric       | Value |
-|--------------|-------|
-| Gym Hours    |       |
-| Books Read   |       |
-| Sleep (h)    |       |
+- [ ] Wealth & Gear Summary
+- [ ] Allies & Relations
+- [ ] Knowledge & Skills Gained
 
-## 📝 Reflection
-- Successes:
-- Struggles:
-- Insights:
+## The Next Quarter
 
-## 🔭 Next Quarter
-- Focus:
-- Key Projects:
+- [ ] Key Hunts
+- [ ] Skills to Hone
+- [ ] Foreseen Dangers
 
 ---
 *Created: %s*]]

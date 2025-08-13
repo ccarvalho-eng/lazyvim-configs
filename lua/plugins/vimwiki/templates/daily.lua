@@ -1,33 +1,40 @@
 return [[# %s - %s
 
-## 🎯 Focus
-- [ ]
+## Dawn
 
-## 📥 Inbox
+- [ ] Draughts & Potions
+- [ ] Training
+- [ ] Cleansing
+- [ ] Meditation
+- [ ] Study Lore & Signs
+- [ ] Morning Meal
+- [ ] Camp Chores
+
+## Before the Path
+
+- [ ] Scrolls & Messages
+- [ ] Letters & Missives
+- [ ] Hunt Schedule
+- [ ] Tasks & Marks
+
+## Priorities
+
+1.
+2.
+3.
+
+## Gatherings
+
+- [ ] 
+
+## Tales of the Day
+
 - 
 
-## 📤 Outbox
-- 
+## Night Reflection
 
-## 💪 Wellness
-
-| Tracker  | Done? |
-|----------|--------|
-| Water    | [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] |
-| Gym      | [ ]    |
-| Sleep    | [ ]    |
-| Mood     | 🙂😐😞 |
-
-## 📝 Log
-- 
-
-## 💭 Reflection
-- Wins:
-- Challenges:
-- Notes:
-
-## ⏭ Tomorrow
-- [ ]
+- [ ] Lessons
+- [ ] Thriumphs
 
 ---
 *Created: %s*]]

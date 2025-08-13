@@ -1,28 +1,22 @@
 return [[# %s Year Review
 
-## 📋 Summary
-- 
+## The Path Reviewed
 
-## 🏆 Goals
-- [ ]
+- [ ] Major Lessons of the Year
+- [ ] Hard-Won Achievements
+- [ ] Wounds & Failures
 
-## 📈 Metrics
+## The Ledger
 
-| Area     | Metric      | Value |
-|----------|-------------|-------|
-| Health   | Gym Hours   |       |
-| Personal | Books Read  |       |
-| Sleep    | Avg Hours   |       |
+- [ ] Wealth & Gear Overview
+- [ ] Allies & Relations
+- [ ] Knowledge & Skills Mastered
 
-## 💡 Highlights
-- 
+## The Next Year
 
-## 🧠 Lessons
-- 
-
-## 🔮 Vision %d
-- Goals:
-- Focus:
+- [ ] Grand Hunts to Pursue
+- [ ] Skills to Master
+- [ ] Foreseen Dangers
 
 ---
 *Created: %s*]]

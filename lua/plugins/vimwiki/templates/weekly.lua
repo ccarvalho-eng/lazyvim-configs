@@ -2,24 +2,23 @@ return [[# Week %s, %d
 
 **Start Date:** %s
 
-## 🎯 Goals
-- [ ]
+## Hunts & Tasks
 
-## 📋 Habits
+- [ ] Contracts Fulfilled
+- [ ] Beasts Tracked
+- [ ] Paths Travelled
 
-| Habit      | M | T | W | T | F | S | S |
-|------------|---|---|---|---|---|---|---|
-| Gym        |   |   |   |   |   |   |   |
-| Water      |   |   |   |   |   |   |   |
-| Sleep      |   |   |   |   |   |   |   |
+## The Path Reviewed
 
-## 🏆 Wins
-- 
+- [ ] Lessons Learned
+- [ ] Gains & Progress
+- [ ] Wounds & Failures
 
-## 📝 Reflection
-- What went well:
-- What to improve:
-- Next week focus:
+## The Next Week
+
+- [ ] Hunts to Pursue
+- [ ] Skills to Practice
+- [ ] Dangers Foreseen
 
 ---
 *Created: %s*]]

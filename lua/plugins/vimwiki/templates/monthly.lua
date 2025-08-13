@@ -1,30 +1,22 @@
 return [[# %s %d
 
-## 🎯 Goals
-- [ ]
+## Hunts Completed
 
-## 📌 Key Events
-- 
+- [ ] Contracts Fulfilled
+- [ ] Beasts Slain
+- [ ] Paths Travelled
 
-## 📋 Habits
+## The Path Reviewed
 
-| Habit      | W1 | W2 | W3 | W4 |
-|------------|----|----|----|----|
-| Gym        |    |    |    |    |
-| Water      |    |    |    |    |
-| Reading    |    |    |    |    |
+- [ ] Lessons Learned
+- [ ] Hard-Won Gains
+- [ ] Wounds & Failures
 
-## 🏆 Highlights
-- 
+## The Next Moon’s Path
 
-## 📝 Reflection
-- Wins:
-- Challenges:
-- Lessons:
-
-## ⏭ Next Month
-- Focus:
-- Priorities:
+- [ ] Hunts to Pursue
+- [ ] Skills to Hone
+- [ ] Dangers Foreseen
 
 ---
 *Created: %s*]]

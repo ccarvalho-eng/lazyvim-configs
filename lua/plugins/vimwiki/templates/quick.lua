@@ -1,9 +1,9 @@
 return [[# %s
 
-## 🎯 Focus
-- [ ]
+## Priorities
+1. 
 
-## 📝 Notes
+## Tales of the Day
 - 
 
 ---
