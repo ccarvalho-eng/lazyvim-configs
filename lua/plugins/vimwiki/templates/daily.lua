@@ -1,40 +1,45 @@
 return [[# %s - %s
 
-## Dawn
+## 🌅 Morning Routine
 
-- [ ] Draughts & Potions
-- [ ] Training
-- [ ] Cleansing
-- [ ] Meditation
-- [ ] Study Lore & Signs
-- [ ] Morning Meal
-- [ ] Camp Chores
+- [ ] Hydrate (water, electrolytes)
+- [ ] Physical training or movement
+- [ ] Cold shower
+- [ ] Meditation or breathwork
+- [ ] Focused reading (15–30 mins)
+- [ ] Breakfast (mindful, nutritious)
+- [ ] House chores or tidying
 
-## Before the Path
+## ⚙️ Pre-Work Setup
 
-- [ ] Scrolls & Messages
-- [ ] Letters & Missives
-- [ ] Hunt Schedule
-- [ ] Tasks & Marks
+- [ ] Clear & prepare workspace
+- [ ] Review calendar + daily plan
+- [ ] Process messages & email (time-boxed)
+- [ ] Visualize a successful day (1–2 min)
 
-## Priorities
+## 🎯 Top 3 Priorities (MITs)
 
-1.
-2.
-3.
+1. [ ] 
+2. [ ] 
+3. [ ] 
 
-## Gatherings
+## 🗓️ Schedule / Time Blocks
 
-- [ ] 
+- [ ] 06:00 – Morning routine
+- [ ] 12:00 – Deep Work Block 1
+- [ ] 14:00 – Lunch
+- [ ] ...
+- [ ] 19:30 – Shutdown routine
 
-## Tales of the Day
+## 🧠 Notes & Ideas
 
-- 
+- Bullet insights, ideas, or unexpected tasks here.
 
-## Night Reflection
+## 🔁 End-of-Day Reflections
 
-- [ ] Lessons
-- [ ] Triumphs
+- ✅ What went well today:
+- ❌ What didn’t go as planned:
+- 🔄 What will I adjust tomorrow:
 
 ---
 *Created: %s*]]
