@@ -3,12 +3,6 @@ return {
     international = {
       { "https://www.theguardian.com/international/rss", name = "The Guardian" },
     },
-    brazil = {
-      { "https://www.gazetadopovo.com.br/rss/", name = "Gazeta do Povo" },
-    },
-    portugal = {
-      { "https://observador.pt/feed/", name = "O Observador" },
-    },
   },
   tech = {
     security = {
