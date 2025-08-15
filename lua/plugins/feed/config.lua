@@ -42,6 +42,7 @@ return {
       { "https://www.theparisreview.org/blog/feed/", name = "The Paris Review" },
     },
     discoveries = {
+      { "https://www.archaeology.org/rss", name = "Archaeology Magazine" },
       { "https://www.atlasobscura.com/feeds/latest", name = "Atlas Obscura" },
     },
   },
