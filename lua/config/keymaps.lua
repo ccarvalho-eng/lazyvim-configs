@@ -17,11 +17,3 @@ vim.api.nvim_set_keymap(
   ":vsplit | vertical resize 80 | terminal<CR>",
   { noremap = true, silent = true, desc = "Open terminal (vertical split)" }
 )
-
--- Keybinding to delete all buffers
-vim.keymap.set("n", "<leader>bK", ":%bd<CR>", { noremap = true, silent = true, desc = "Close all buffers" })
-
--- Kwymap for getting the current file path
-vim.keymap.set("n", "<leader>fl", function()
-  vim.fn.setreg("+", vim.fn.expand("%:p"))
-end, { desc = "Copy current file path to clipboard" })
