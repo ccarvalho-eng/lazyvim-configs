@@ -1,4 +1,4 @@
-return [[# %s Year Review
+return [[# %s
 
 ---
 *Created: %s*]]

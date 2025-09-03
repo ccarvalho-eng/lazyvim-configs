@@ -91,7 +91,7 @@ function M.monthly_note()
   local year = date.year
   local month_num = date.month
 
-  local filename = string.format("journal/monthly/%d-%02d-%s.md", year, month_num, month_name)
+  local filename = string.format("journal/monthly/%d-%02d.md", year, month_num, month_name)
   local filepath = get_wiki_path() .. filename
 
   local template_str = load_template("monthly")
@@ -131,7 +131,7 @@ end
 
 function M.yearly_note()
   local year = os.date("%Y")
-  local filename = string.format("journal/yearly/%s-Year-Review.md", year)
+  local filename = string.format("journal/yearly/%s.md", year)
   local filepath = get_wiki_path() .. filename
 
   local template_str = load_template("yearly")
