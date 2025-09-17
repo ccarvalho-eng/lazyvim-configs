@@ -4,7 +4,6 @@ return [[# %s - %s
 
 - [ ] Hydration
 - [ ] Workout
-- [ ] Cold shower
 - [ ] Meditation
 - [ ] Reading
 - [ ] Breakfast
@@ -32,9 +31,6 @@ return [[# %s - %s
 
 ## End-of-Day Reflections
 
-- What went well today:
-- What didn’t go as planned:
-- What will I adjust tomorrow:
 
 ---
 *Created: %s*]]
