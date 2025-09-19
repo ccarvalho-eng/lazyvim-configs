@@ -7,7 +7,7 @@ return {
     config = function()
       require("onedark").setup({
         -- Customize the theme here (optional)
-        style = "dark", -- Options: dark, darker, cool, deep, warm, warmer
+        style = "darker", -- Options: dark, darker, cool, deep, warm, warmer
       })
     end,
   },
