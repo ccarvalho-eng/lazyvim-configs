@@ -36,26 +36,4 @@ return {
       { "https://www.technologyreview.com/feed/", name = "MIT Technology Review" },
     },
   },
-  culture = {
-    literature = {
-      { "https://www.nybooks.com/feed/", name = "NY Books" },
-      { "https://www.theparisreview.org/blog/feed/", name = "The Paris Review" },
-    },
-    discoveries = {
-      { "https://www.archaeology.org/rss", name = "Archaeology Magazine" },
-      { "https://www.atlasobscura.com/feeds/latest", name = "Atlas Obscura" },
-    },
-  },
-  science = {
-    space = {
-      { "https://www.nasa.gov/news-release/feed/", name = "NASA Breaking News" },
-      { "https://apod.nasa.gov/apod.rss", name = "Astronomy Picture of the Day" },
-    },
-  },
-  entertainment = {
-    gaming = {
-      { "https://www.pcgamer.com/rss/", name = "PC Gamer" },
-      { "https://www.eurogamer.net/?format=rss", name = "Eurogamer" },
-    },
-  },
 }
