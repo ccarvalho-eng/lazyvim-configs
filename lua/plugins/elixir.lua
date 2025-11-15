@@ -76,7 +76,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     opts = function(_, opts)
-      local nls = require("null-ls")
+      local nls = require("none-ls")
       opts.sources = vim.list_extend(opts.sources or {}, {
         -- Linting with Credo
         nls.builtins.diagnostics.credo.with({
@@ -89,26 +89,6 @@ return {
       })
     end,
   },
-
-  -- Credo Linting using nvim-lint
-  --[[
-  {
-    "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      opts.linters_by_ft = {
-        elixir = { "credo" },
-      }
-      opts.linters = {
-        credo = {
-          condition = function(ctx)
-            return vim.fs.find({ ".credo.exs" }, { path = ctx.filename, upward = true })[1]
-          end,
-        },
-      }
-    end,
-  },
-  -- Disabled to avoid duplicate diagnostics with none-ls
-  ]]
 
   -- vim-test configuration
   {

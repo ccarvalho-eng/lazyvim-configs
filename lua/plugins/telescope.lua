@@ -1,3 +1,7 @@
+local build_cmd = vim.fn.executable("make") == 1 and "make"
+  or vim.fn.executable("cmake") == 1 and "cmake"
+  or nil
+
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
