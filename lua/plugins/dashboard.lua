@@ -85,8 +85,10 @@ local witcher_quotes = {
   },
 }
 
+-- Initialize random seed once
+math.randomseed(os.time())
+
 local function get_random_witcher_quote()
-  math.randomseed(os.time())
   local selected = witcher_quotes[math.random(#witcher_quotes)]
   local lines = {}
   for line in selected.quote:gmatch("[^\n]+") do

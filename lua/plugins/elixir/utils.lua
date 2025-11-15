@@ -17,9 +17,9 @@ function M.switch_test_implementation()
   end
 
   if vim.fn.filereadable(target_file) == 1 then
-    local ok, err = pcall(vim.cmd, "edit " .. target_file)
+    local ok, err = pcall(vim.cmd.edit, target_file)
     if not ok then
-      vim.notify("Failed to open file: " .. target_file .. (err and (" (" .. err .. ")") or ""), vim.log.levels.ERROR)
+      vim.notify("Failed to open file: " .. target_file .. (err and (" (" .. tostring(err) .. ")") or ""), vim.log.levels.ERROR)
       return
     end
   else
@@ -34,9 +34,9 @@ function M.switch_test_implementation()
     end
 
     -- Create and open the new file
-    local ok, err = pcall(vim.cmd, "edit " .. target_file)
+    local ok, err = pcall(vim.cmd.edit, target_file)
     if not ok then
-      vim.notify("Failed to open file: " .. target_file .. (err and (" (" .. err .. ")") or ""), vim.log.levels.ERROR)
+      vim.notify("Failed to open file: " .. target_file .. (err and (" (" .. tostring(err) .. ")") or ""), vim.log.levels.ERROR)
       return
     end
 
@@ -47,11 +47,13 @@ function M.switch_test_implementation()
         -- Convert path to module name
         local module_name = rel_path
           :gsub("/", ".")
-          :gsub("_(%l)", function(l)
+          :gsub("_(.)", function(l)
             return l:upper()
-          end) -- convert snake_case to camelCase
+          end) -- convert snake_case to PascalCase
           :gsub("^%l", string.upper) -- capitalize first letter
-          :gsub("%.%l", string.upper) -- capitalize letters after dots
+          :gsub("%.(%l)", function(l)
+            return "." .. l:upper()
+          end) -- capitalize letters after dots
 
         -- Generate test module content
         local test_content = string.format(
@@ -76,10 +78,10 @@ end]],
         end
 
         -- Save the file
-        local ok_write, err_write = pcall(vim.cmd, "write")
+        local ok_write, err_write = pcall(vim.cmd.write)
         if not ok_write then
           vim.notify(
-            "Failed to write file: " .. target_file .. (err_write and (" (" .. err_write .. ")") or ""),
+            "Failed to write file: " .. target_file .. (err_write and (" (" .. tostring(err_write) .. ")") or ""),
             vim.log.levels.ERROR
           )
           return

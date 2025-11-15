@@ -1,34 +1,18 @@
 -- Elixir Language Server and Plugin Configuration for LazyVim
--- Add keybinding for Elixir debugging
-local function setup_elixir_keys()
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "elixir", "heex", "eex" },
-    callback = function()
-      -- Map <leader>cD to append |> dbg() to current line
-      vim.api.nvim_buf_set_keymap(
-        0,
-        "n",
-        "<leader>cD",
-        ":lua vim.api.nvim_set_current_line(vim.api.nvim_get_current_line() .. ' |> dbg()')<CR>",
-        { noremap = true, silent = true, desc = "Append |> dbg() to current line" }
-      )
-    end,
-  })
-end
-
--- Call the setup function
-setup_elixir_keys()
 
 return {
   -- LSP Configuration for Elixir
   {
     "neovim/nvim-lspconfig",
+    ft = { "elixir", "heex", "eex" },
     opts = {
       servers = {
         elixirls = {
           cmd = { vim.fn.expand("~/.elixir-ls/release/language_server.sh") },
           filetypes = { "elixir", "eelixir", "heex" },
-          root_dir = require("lspconfig.util").root_pattern("mix.exs", ".git"),
+          root_dir = function(fname)
+            return require("lspconfig.util").root_pattern("mix.exs", ".git")(fname)
+          end,
           settings = {
             elixirLS = {
               dialyzerEnabled = false,
@@ -38,6 +22,21 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      -- Setup keybinding for Elixir debugging
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "elixir", "heex", "eex" },
+        callback = function()
+          vim.api.nvim_buf_set_keymap(
+            0,
+            "n",
+            "<leader>cD",
+            ":lua vim.api.nvim_set_current_line(vim.api.nvim_get_current_line() .. ' |> dbg()')<CR>",
+            { noremap = true, silent = true, desc = "Append |> dbg() to current line" }
+          )
+        end,
+      })
+    end,
   },
 
   -- Treesitter Configuration for Elixir and Related Languages
@@ -76,8 +75,13 @@ return {
   {
     "nvimtools/none-ls.nvim",
     opts = function(_, opts)
-      local nls = require("none-ls")
-      opts.sources = vim.list_extend(opts.sources or {}, {
+      local ok, nls = pcall(require, "none-ls")
+      if not ok then
+        return opts
+      end
+
+      opts.sources = opts.sources or {}
+      opts.sources = vim.list_extend(opts.sources, {
         -- Linting with Credo
         nls.builtins.diagnostics.credo.with({
           condition = function(utils)
@@ -87,6 +91,8 @@ return {
         -- Formatting with Mix format
         nls.builtins.formatting.mix,
       })
+
+      return opts
     end,
   },
 
@@ -104,7 +110,12 @@ return {
       {
         "<leader>mti",
         function()
-          require("plugins.elixir.utils").switch_test_implementation()
+          local ok, utils = pcall(require, "plugins.elixir.utils")
+          if ok then
+            utils.switch_test_implementation()
+          else
+            vim.notify("Failed to load elixir utils", vim.log.levels.ERROR)
+          end
         end,
         desc = "Visit implementation file",
       },
